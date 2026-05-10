@@ -227,7 +227,7 @@ grid-template-columns:1fr;
 <div class="hero-left">
 
 <h1>
-Güvenli Kurumsal
+Güvenli Kurumsal Firmamızın
 <span>Ödeme Portalı</span>
 </h1>
 
@@ -268,7 +268,7 @@ Kart bilgileriniz tarafımızca saklanmaz.
 
 <textarea id="descriptionBox"></textarea>
 
-<input type="number" placeholder="Ödenecek Tutar (₺)">
+<input type="text" id="amountInput" placeholder="Ödenecek Tutar (₺)">
 
 <div class="payment-methods">
 
@@ -400,7 +400,38 @@ box.placeholder = "Ödeme açıklamasını giriniz";
 }
 
 }
+const amountInput = document.getElementById("amountInput");
 
+amountInput.addEventListener("input", function(e){
+
+let value = e.target.value;
+
+value = value.replace(/[^0-9,]/g, "");
+
+let parts = value.split(",");
+
+let integerPart = parts[0];
+let decimalPart = parts[1];
+
+integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+if(decimalPart !== undefined){
+
+decimalPart = decimalPart.substring(0,2);
+
+value = integerPart + "," + decimalPart;
+
+}
+
+else{
+
+value = integerPart;
+
+}
+
+e.target.value = value;
+
+});
 function openPaymentModal(){
 
 alert(
