@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEAQOPAY</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+    }
+
+    header{
+      padding:25px 8%;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,0.7);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:6px;
+    }
+
+    .hero{
+      padding:100px 8%;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:60px;
+    }
+
+    .hero-left{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-left h1{
+      font-size:72px;
+      line-height:1;
+      margin-bottom:25px;
+    }
+
+    .hero-left p{
+      color:rgba(255,255,255,0.6);
+      font-size:20px;
+      line-height:1.7;
+      max-width:600px;
+    }
+
+    .payment-card{
+      width:420px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:35px;
+      backdrop-filter:blur(20px);
+    }
+
+    .payment-card h2{
+      margin-bottom:25px;
+      font-size:30px;
+    }
+
+    .payment-card input,
+    .payment-card textarea{
+      width:100%;
+      margin-bottom:15px;
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      background:#111;
+      color:white;
+      font-size:15px;
+    }
+
+    .payment-card textarea{
+      resize:none;
+      height:100px;
+    }
+
+    .payment-card button{
+      width:100%;
+      padding:18px;
+      border:none;
+      border-radius:18px;
+      background:white;
+      color:black;
+      font-size:17px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .payment-card button:hover{
+      opacity:0.9;
+    }
+
+    .services{
+      padding:70px 8%;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .service-box{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      padding:30px;
+    }
+
+    .service-box h3{
+      margin-bottom:15px;
+      font-size:22px;
+    }
+
+    .service-box p{
+      color:rgba(255,255,255,0.6);
+      line-height:1.7;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:40px 8%;
+      color:rgba(255,255,255,0.5);
+      margin-top:50px;
+    }
+
+    @media(max-width:900px){
+
+      .hero{
+        padding-top:70px;
+      }
+
+      .hero-left h1{
+        font-size:48px;
+      }
+
+      .payment-card{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">PEAQOPAY</div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <h1>Kurumsal Online Ödeme Sistemi</h1>
+
+    <p>
+      Teklif sonrası güvenli tahsilat altyapısı.
+      Teknik tedarik, proje bazlı hizmetler ve kurumsal ödemeler için modern B2B ödeme deneyimi.
+    </p>
+  </div>
+
+  <div class="payment-card">
+
+    <h2>Güvenli Ödeme</h2>
+
+    <input type="text" placeholder="Ad Soyad / Firma Ünvanı">
+
+    <input type="text" placeholder="Telefon">
+
+    <input type="email" placeholder="E-posta">
+
+    <textarea placeholder="Açıklama / Teklif No"></textarea>
+
+    <input type="number" placeholder="Ödenecek Tutar (₺)">
+
+    <button>Güvenli Ödeme Yap</button>
+
+  </div>
+
+</section>
+
+<section class="services">
+
+  <div class="service-box">
+    <h3>Teklif Bazlı Ödeme</h3>
+    <p>
+      Müşteri teklif sonrası ödeme yapar. Tutar müşteri tarafından girilebilir.
+    </p>
+  </div>
+
+  <div class="service-box">
+    <h3>Kurumsal Tahsilat</h3>
+    <p>
+      Güvenli online ödeme altyapısı ile hızlı tahsilat süreçleri.
+    </p>
+  </div>
+
+  <div class="service-box">
+    <h3>SSL Güvenliği</h3>
+    <p>
+      HTTPS bağlantısı ve güvenli ödeme yönlendirme altyapısı.
+    </p>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 PEAQOPAY — Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>
