@@ -1,228 +1,415 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PEAQOPAY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+<title>PEAQO TECH</title>
 
-    body{
-      background:#050505;
-      color:white;
-    }
+<style>
 
-    header{
-      padding:25px 8%;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      position:sticky;
-      top:0;
-      backdrop-filter:blur(10px);
-      background:rgba(0,0,0,0.7);
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
 
-    .logo{
-      font-size:28px;
-      font-weight:700;
-      letter-spacing:6px;
-    }
+body{
+background:#050505;
+color:white;
+}
 
-    .hero{
-      padding:100px 8%;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      gap:60px;
-    }
+header{
+padding:25px 8%;
+border-bottom:1px solid rgba(255,255,255,0.08);
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
 
-    .hero-left{
-      flex:1;
-      min-width:300px;
-    }
+.logo{
+font-size:28px;
+font-weight:700;
+letter-spacing:5px;
+}
 
-    .hero-left h1{
-      font-size:72px;
-      line-height:1;
-      margin-bottom:25px;
-    }
+.hero{
+padding:80px 8%;
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+gap:60px;
+align-items:flex-start;
+}
 
-    .hero-left p{
-      color:rgba(255,255,255,0.6);
-      font-size:20px;
-      line-height:1.7;
-      max-width:600px;
-    }
+.hero-left{
+flex:1;
+min-width:300px;
+}
 
-    .payment-card{
-      width:420px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:30px;
-      padding:35px;
-      backdrop-filter:blur(20px);
-    }
+.hero-left h1{
+font-size:72px;
+line-height:1;
+margin-bottom:25px;
+}
 
-    .payment-card h2{
-      margin-bottom:25px;
-      font-size:30px;
-    }
+.hero-left h1 span{
+color:rgba(255,255,255,0.5);
+display:block;
+}
 
-    .payment-card input,
-    .payment-card textarea{
-      width:100%;
-      margin-bottom:15px;
-      padding:16px;
-      border:none;
-      border-radius:16px;
-      background:#111;
-      color:white;
-      font-size:15px;
-    }
+.hero-left p{
+font-size:20px;
+line-height:1.7;
+color:rgba(255,255,255,0.6);
+max-width:650px;
+}
 
-    .payment-card textarea{
-      resize:none;
-      height:100px;
-    }
+.payment-card{
+width:450px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:30px;
+padding:35px;
+backdrop-filter:blur(20px);
+}
 
-    .payment-card button{
-      width:100%;
-      padding:18px;
-      border:none;
-      border-radius:18px;
-      background:white;
-      color:black;
-      font-size:17px;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.payment-card h2{
+margin-bottom:25px;
+font-size:30px;
+}
 
-    .payment-card button:hover{
-      opacity:0.9;
-    }
+.payment-card input,
+.payment-card select,
+.payment-card textarea{
+width:100%;
+padding:16px;
+margin-bottom:15px;
+background:#111;
+border:none;
+border-radius:16px;
+color:white;
+font-size:15px;
+}
 
-    .services{
-      padding:70px 8%;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
+.payment-card textarea{
+display:none;
+height:100px;
+resize:none;
+}
 
-    .service-box{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:25px;
-      padding:30px;
-    }
+.payment-methods{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-bottom:20px;
+}
 
-    .service-box h3{
-      margin-bottom:15px;
-      font-size:22px;
-    }
+.method-box{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:16px;
+padding:18px;
+font-size:14px;
+cursor:pointer;
+transition:0.3s;
+}
 
-    .service-box p{
-      color:rgba(255,255,255,0.6);
-      line-height:1.7;
-    }
+.method-box:hover{
+background:rgba(255,255,255,0.1);
+}
 
-    footer{
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding:40px 8%;
-      color:rgba(255,255,255,0.5);
-      margin-top:50px;
-    }
+.payment-card button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:white;
+color:black;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
 
-    @media(max-width:900px){
+.payment-card button:hover{
+opacity:0.9;
+}
 
-      .hero{
-        padding-top:70px;
-      }
+.secure-note{
+margin-top:15px;
+font-size:13px;
+line-height:1.7;
+color:rgba(255,255,255,0.5);
+}
 
-      .hero-left h1{
-        font-size:48px;
-      }
+.info-section{
+padding:50px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-      .payment-card{
-        width:100%;
-      }
+.info-box{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:25px;
+padding:30px;
+}
 
-    }
+.info-box h3{
+margin-bottom:15px;
+font-size:22px;
+}
 
-  </style>
+.info-box p{
+color:rgba(255,255,255,0.6);
+line-height:1.7;
+}
+
+footer{
+border-top:1px solid rgba(255,255,255,0.08);
+padding:40px 8%;
+margin-top:50px;
+color:rgba(255,255,255,0.5);
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.footer-links{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:rgba(255,255,255,0.5);
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:white;
+}
+
+@media(max-width:900px){
+
+.hero-left h1{
+font-size:48px;
+}
+
+.payment-card{
+width:100%;
+}
+
+.payment-methods{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="logo">PEAQOPAY</div>
+<div class="logo">PEAQO TECH</div>
 </header>
 
 <section class="hero">
 
-  <div class="hero-left">
-    <h1>Kurumsal Online Ödeme Sistemi</h1>
+<div class="hero-left">
 
-    <p>
-      Teklif sonrası güvenli tahsilat altyapısı.
-      Teknik tedarik, proje bazlı hizmetler ve kurumsal ödemeler için modern B2B ödeme deneyimi.
-    </p>
-  </div>
+<h1>
+Güvenli Kurumsal
+<span>Ödeme Portalı</span>
+</h1>
 
-  <div class="payment-card">
+<p>
+Avans, teklif, fatura ve cari hesap ödemeleri için geliştirilmiş modern B2B ödeme sistemi.
+Kart bilgileriniz tarafımızca saklanmaz.
+</p>
 
-    <h2>Güvenli Ödeme</h2>
+</div>
 
-    <input type="text" placeholder="Ad Soyad / Firma Ünvanı">
+<div class="payment-card">
 
-    <input type="text" placeholder="Telefon">
+<h2>Ödeme Bilgileri</h2>
 
-    <input type="email" placeholder="E-posta">
+<input type="text" placeholder="Ad Soyad / Firma Ünvanı">
 
-    <textarea placeholder="Açıklama / Teklif No"></textarea>
+<input type="text" placeholder="Telefon">
 
-    <input type="number" placeholder="Ödenecek Tutar (₺)">
+<input type="email" placeholder="E-posta">
 
-    <button>Güvenli Ödeme Yap</button>
+<input type="text" placeholder="T.C. Kimlik No / Vergi No">
 
-  </div>
+<select id="paymentType" onchange="showDescription()">
+
+<option value="">Ödeme Türü Seçiniz</option>
+
+<option>Avans Ödemesi</option>
+
+<option>Teklif Ödemesi</option>
+
+<option>Fatura Ödemesi</option>
+
+<option>Cari Hesap Ödemesi</option>
+
+<option>Diğer</option>
+
+</select>
+
+<textarea id="descriptionBox"></textarea>
+
+<input type="number" placeholder="Ödenecek Tutar (₺)">
+
+<div class="payment-methods">
+
+<div class="method-box">
+💳 Kredi Kartı / Banka Kartı
+</div>
+
+<div class="method-box">
+🏦 EFT / Havale
+</div>
+
+<div class="method-box">
+📱 Mobil Ödeme
+</div>
+
+<div class="method-box">
+📄 Mail Order
+</div>
+
+</div>
+
+<button onclick="openPaymentModal()">
+Ödeme Sayfasına Git
+</button>
+
+<p class="secure-note">
+
+Ödemeler lisanslı ödeme kuruluşu altyapısı üzerinden işlenmektedir.
+Kart bilgileriniz PEAQO TECH tarafından saklanmaz.
+
+</p>
+
+</div>
 
 </section>
 
-<section class="services">
+<section class="info-section">
 
-  <div class="service-box">
-    <h3>Teklif Bazlı Ödeme</h3>
-    <p>
-      Müşteri teklif sonrası ödeme yapar. Tutar müşteri tarafından girilebilir.
-    </p>
-  </div>
+<div class="info-box">
 
-  <div class="service-box">
-    <h3>Kurumsal Tahsilat</h3>
-    <p>
-      Güvenli online ödeme altyapısı ile hızlı tahsilat süreçleri.
-    </p>
-  </div>
+<h3>Teklif Sonrası Ödeme</h3>
 
-  <div class="service-box">
-    <h3>SSL Güvenliği</h3>
-    <p>
-      HTTPS bağlantısı ve güvenli ödeme yönlendirme altyapısı.
-    </p>
-  </div>
+<p>
+Müşteri teklif veya sipariş bilgisine göre ödeme gerçekleştirebilir.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>Kurumsal Tahsilat</h3>
+
+<p>
+Avans, cari hesap, teklif ve fatura ödemeleri için modern tahsilat altyapısı.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>SSL Güvenliği</h3>
+
+<p>
+Tüm işlemler HTTPS bağlantısı ve güvenli ödeme yönlendirmesi üzerinden gerçekleştirilir.
+</p>
+
+</div>
 
 </section>
 
 <footer>
-  © 2026 PEAQOPAY — Tüm hakları saklıdır.
+
+<div>
+© 2026 PEAQO TECH
+</div>
+
+<div class="footer-links">
+
+<a href="#">KVKK</a>
+
+<a href="#">Gizlilik Politikası</a>
+
+<a href="#">İade Politikası</a>
+
+<a href="#">Mesafeli Satış</a>
+
+</div>
+
 </footer>
+
+<script>
+
+function showDescription(){
+
+let type = document.getElementById("paymentType").value;
+
+let box = document.getElementById("descriptionBox");
+
+box.style.display = "block";
+
+if(type === "Avans Ödemesi"){
+
+box.placeholder = "Firma Adı / Proje Bilgisi";
+
+}
+
+else if(type === "Teklif Ödemesi"){
+
+box.placeholder = "Teklif No / Firma Adı";
+
+}
+
+else if(type === "Fatura Ödemesi"){
+
+box.placeholder = "Fatura No / Firma Adı";
+
+}
+
+else if(type === "Cari Hesap Ödemesi"){
+
+box.placeholder = "Cari Firma Adı / Vergi No";
+
+}
+
+else{
+
+box.placeholder = "Ödeme açıklamasını giriniz";
+
+}
+
+}
+
+function openPaymentModal(){
+
+alert(
+"Güvenli ödeme kuruluşu ekranına yönlendirileceksiniz."
+);
+
+}
+
+</script>
 
 </body>
 </html>
