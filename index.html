@@ -1,425 +1,375 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PEAQO TECH | Güvenli Ödeme Portalı</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif}
 :root{
---bg:#0b0f14;
---panel:#111821;
---panel2:#151d27;
---border:rgba(255,255,255,.12);
---muted:rgba(255,255,255,.64);
+--bg:#0d1320;
+--card:#111827;
+--card2:#151f2e;
+--line:rgba(255,255,255,.12);
+--text:#fff;
+--muted:rgba(255,255,255,.68);
 --soft:rgba(255,255,255,.42);
 --green:#22c55e;
---green2:rgba(34,197,94,.16);
 --red:#ef4444;
---white:#fff;
---black:#000;
+--blue:#60a5fa;
 }
 body{
 background:
-radial-gradient(circle at top right,rgba(34,197,94,.16),transparent 30%),
-radial-gradient(circle at bottom left,rgba(80,120,255,.12),transparent 32%),
-linear-gradient(180deg,#0b0f14,#07090c);
-color:white;
+radial-gradient(circle at top left,rgba(96,165,250,.16),transparent 28%),
+radial-gradient(circle at bottom right,rgba(34,197,94,.13),transparent 30%),
+linear-gradient(180deg,#0d1320,#090d15);
+color:var(--text);
 min-height:100vh;
 }
-a{color:inherit;text-decoration:none}
 header{
 position:sticky;top:0;z-index:50;
-background:rgba(11,15,20,.78);
+background:rgba(13,19,32,.82);
 backdrop-filter:blur(18px);
-border-bottom:1px solid var(--border)
+border-bottom:1px solid var(--line)
 }
 .nav{
-width:min(1220px,92%);
+width:min(1180px,92%);
 margin:auto;
-padding:18px 0;
+padding:17px 0;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:20px
 }
-.brand{display:flex;align-items:center;gap:13px}
-.brand-mark{
-width:42px;height:42px;border-radius:15px;
-background:linear-gradient(145deg,#fff,#cfd5dc);
+.brand{display:flex;align-items:center;gap:14px}
+.logo-box{
+width:44px;height:44px;border-radius:14px;
+background:#fff;
 display:flex;align-items:center;justify-content:center;
-color:#0b0f14;font-weight:900;font-size:18px
+overflow:hidden;
 }
-.brand-title{font-size:22px;font-weight:800;letter-spacing:3.5px}
-.brand-sub{font-size:11px;color:var(--soft);letter-spacing:1.4px;margin-top:3px}
-.nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px}
-.nav-links a:hover{color:white}
-main{width:min(1220px,92%);margin:auto}
+.logo-box img{width:100%;height:100%;object-fit:cover}
+.logo-fallback{color:#0d1320;font-weight:900;font-size:18px}
+.brand-title{font-size:22px;font-weight:900;letter-spacing:3px}
+.brand-sub{font-size:11px;color:var(--soft);letter-spacing:1.5px;margin-top:3px}
+.nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+.nav a:hover{color:#fff}
+
+main{width:min(1180px,92%);margin:auto}
 .hero{
-padding:64px 0 48px;
+padding:58px 0 42px;
 display:grid;
-grid-template-columns:1fr 500px;
+grid-template-columns:1fr 480px;
 gap:52px;
-align-items:start
+align-items:start;
 }
-.hero-left{position:sticky;top:110px}
+.left{
+padding-top:16px;
+}
+.kicker{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:9px 13px;
+border:1px solid var(--line);
+border-radius:999px;
+background:rgba(255,255,255,.05);
+color:var(--muted);
+font-size:13px;
+margin-bottom:22px;
+}
+.kicker-dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 18px var(--green)}
 h1{
-font-size:clamp(46px,7vw,86px);
-line-height:.96;
-letter-spacing:-3px;
-font-weight:850;
-margin-bottom:18px
+font-size:clamp(42px,6vw,72px);
+line-height:1;
+letter-spacing:-2.8px;
+margin-bottom:18px;
 }
-h1 span{color:rgba(255,255,255,.58);display:block}
+h1 span{display:block;color:rgba(255,255,255,.55)}
 .slogan{
 font-size:18px;
 font-weight:800;
-letter-spacing:.6px;
-margin-bottom:22px;
-color:rgba(255,255,255,.9)
+color:#fff;
+margin-bottom:18px;
 }
-.hero-text{
-color:var(--muted);
-font-size:18px;
+.lead{
+font-size:17px;
 line-height:1.75;
-max-width:720px
+color:var(--muted);
+max-width:650px;
 }
-.hero-highlight{
+.visual-card{
 margin-top:28px;
-border:1px solid rgba(34,197,94,.28);
-background:linear-gradient(135deg,rgba(34,197,94,.13),rgba(255,255,255,.045));
-border-radius:28px;
-padding:24px
+border:1px solid var(--line);
+background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+border-radius:30px;
+padding:24px;
+position:relative;
+overflow:hidden;
 }
-.hero-highlight h3{font-size:20px;margin-bottom:10px}
-.hero-highlight p{color:var(--muted);font-size:14px;line-height:1.7}
-.grid-info{
-margin-top:18px;
+.visual-card:before{
+content:"";
+position:absolute;
+right:-70px;
+top:-70px;
+width:190px;
+height:190px;
+background:rgba(34,197,94,.14);
+border-radius:50%;
+filter:blur(10px);
+}
+.visual-card h3{font-size:20px;margin-bottom:10px}
+.visual-card p{font-size:14px;line-height:1.7;color:var(--muted)}
+.feature-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:12px
+gap:12px;
+margin-top:18px;
 }
-.info-mini{
-border:1px solid var(--border);
-background:rgba(255,255,255,.055);
-border-radius:20px;
-padding:16px;
-min-height:122px
+.feature{
+border:1px solid var(--line);
+background:rgba(255,255,255,.045);
+border-radius:22px;
+padding:18px;
 }
-.info-icon{
-width:38px;height:38px;border-radius:14px;
+.icon{
+width:42px;height:42px;border-radius:15px;
 background:rgba(255,255,255,.08);
 display:flex;align-items:center;justify-content:center;
-margin-bottom:12px
+margin-bottom:12px;
 }
-.info-mini strong{display:block;font-size:14px;margin-bottom:7px}
-.info-mini span{color:var(--soft);font-size:12.5px;line-height:1.5;display:block}
-.process{
+.feature strong{font-size:14px;display:block;margin-bottom:8px}
+.feature span{font-size:12.5px;color:var(--soft);line-height:1.5;display:block}
+.products{
 margin-top:18px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px
-}
-.step{
-border:1px solid var(--border);
-background:rgba(0,0,0,.22);
-border-radius:20px;
-padding:16px
-}
-.step-num{
-width:28px;height:28px;border-radius:50%;
-background:var(--green);
-color:#061007;
-font-weight:900;
-display:flex;align-items:center;justify-content:center;
-margin-bottom:10px
-}
-.step strong{display:block;font-size:14px;margin-bottom:6px}
-.step span{color:var(--soft);font-size:12.5px;line-height:1.45}
-.supply-card{
-margin-top:18px;
-border:1px solid var(--border);
-background:rgba(255,255,255,.045);
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
 border-radius:24px;
-padding:20px
+padding:20px;
 }
-.supply-card h3{font-size:18px;margin-bottom:12px}
+.products h3{font-size:18px;margin-bottom:12px}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{
-border:1px solid rgba(255,255,255,.1);
-background:rgba(255,255,255,.055);
-border-radius:999px;
-padding:8px 11px;
-font-size:12px;
-color:rgba(255,255,255,.72)
-}
+.tag{font-size:12px;color:rgba(255,255,255,.75);border:1px solid var(--line);background:rgba(255,255,255,.045);padding:8px 11px;border-radius:999px}
+
 .form-card{
-background:linear-gradient(180deg,rgba(255,255,255,.105),rgba(255,255,255,.045));
-border:1px solid var(--border);
-border-radius:34px;
-padding:28px;
-box-shadow:0 24px 70px rgba(0,0,0,.45);
-backdrop-filter:blur(22px)
+background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
+border:1px solid var(--line);
+border-radius:30px;
+padding:26px;
+box-shadow:0 24px 70px rgba(0,0,0,.42);
 }
-.form-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:22px}
-.form-head h2{font-size:28px;margin-bottom:8px}
-.form-head p{color:var(--soft);font-size:14px;line-height:1.5}
-.ssl-pill{
-border:1px solid rgba(34,197,94,.32);
+.form-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px}
+.form-head h2{font-size:27px;margin-bottom:7px}
+.form-head p{font-size:14px;color:var(--soft);line-height:1.45}
+.ssl{
+border:1px solid rgba(34,197,94,.35);
 background:rgba(34,197,94,.10);
-color:rgba(255,255,255,.75);
+color:#d7ffe5;
 border-radius:999px;
-padding:8px 11px;
+padding:8px 12px;
 font-size:12px;
-white-space:nowrap
+height:max-content;
+white-space:nowrap;
 }
 .notice{
-border:1px solid rgba(255,255,255,.10);
-background:rgba(0,0,0,.22);
-border-radius:18px;
-padding:13px;
 font-size:12.5px;
 line-height:1.55;
-color:rgba(255,255,255,.62);
-margin-bottom:16px
+color:var(--muted);
+border:1px solid var(--line);
+background:rgba(0,0,0,.20);
+border-radius:16px;
+padding:13px;
+margin-bottom:16px;
 }
-.field{margin-bottom:14px;position:relative}
-label{display:block;font-size:13px;color:rgba(255,255,255,.68);margin-bottom:8px}
+.field{position:relative;margin-bottom:14px}
+label{font-size:13px;color:rgba(255,255,255,.72);display:block;margin-bottom:8px}
 input,textarea{
 width:100%;
-border:1px solid rgba(255,255,255,.12);
-background:rgba(0,0,0,.36);
+border:1px solid rgba(255,255,255,.13);
+background:rgba(0,0,0,.28);
 color:white;
-border-radius:17px;
-padding:15px 44px 15px 16px;
+border-radius:16px;
+padding:15px 44px 15px 15px;
 font-size:15px;
 outline:none;
-transition:.22s
+transition:.2s;
 }
-input:focus,textarea:focus{
-border-color:rgba(34,197,94,.55);
-background:rgba(0,0,0,.48)
-}
-textarea{resize:none;min-height:88px;display:none}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.valid-check{
-display:none;
-position:absolute;
-right:15px;
-bottom:14px;
-color:var(--green);
-font-size:18px;
-font-weight:900
-}
-.field.valid .valid-check{display:block}
-.field.invalid input,.field.invalid textarea,.field.invalid .custom-select-trigger{
-border-color:rgba(239,68,68,.62)
-}
-.error-text{display:none;color:rgba(239,68,68,.92);font-size:11.5px;margin-top:6px}
-.field.invalid .error-text{display:block}
-.char-count{
-display:none;
-text-align:right;
-color:rgba(255,255,255,.42);
-font-size:12px;
-margin-top:-7px;
-margin-bottom:10px
-}
-.char-count.good{color:rgba(34,197,94,.9)}
+input:focus,textarea:focus{border-color:rgba(34,197,94,.65);background:rgba(0,0,0,.38)}
+textarea{display:none;min-height:88px;resize:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check{display:none;position:absolute;right:15px;bottom:14px;color:var(--green);font-size:18px;font-weight:900}
+.field.valid .check{display:block}
+.field.invalid input,.field.invalid textarea,.field.invalid .select-trigger{border-color:var(--red)}
+.err{display:none;color:#ff8d8d;font-size:11.5px;margin-top:6px}
+.field.invalid .err{display:block}
+.count{display:none;text-align:right;color:var(--soft);font-size:12px;margin-top:-7px;margin-bottom:10px}
+.count.good{color:var(--green)}
+
 .custom-select{position:relative}
-.custom-select-trigger{
+.select-trigger{
 width:100%;
-border:1px solid rgba(255,255,255,.12);
-background:rgba(0,0,0,.36);
+border:1px solid rgba(255,255,255,.13);
+background:rgba(0,0,0,.28);
 color:white;
-border-radius:17px;
-padding:15px 44px 15px 16px;
+border-radius:16px;
+padding:15px;
 font-size:15px;
 cursor:pointer;
-transition:.22s;
-position:relative
 }
-.custom-select-trigger:after{
-content:"⌄";
-position:absolute;
-right:17px;
-color:rgba(255,255,255,.65)
-}
-.custom-options{
+.select-trigger:after{content:"⌄";float:right;color:var(--muted)}
+.options{
 display:none;
 position:absolute;
 top:calc(100% + 8px);
 left:0;right:0;
-z-index:40;
-background:#111821;
-border:1px solid rgba(255,255,255,.16);
+z-index:80;
+background:#131c2a;
+border:1px solid var(--line);
 border-radius:18px;
 overflow:hidden;
-box-shadow:0 18px 45px rgba(0,0,0,.58)
+box-shadow:0 22px 55px rgba(0,0,0,.55);
 }
-.custom-options.open{display:block}
-.custom-option{
+.options.open{display:block}
+.option{
 padding:14px 16px;
+font-size:14px;
 color:rgba(255,255,255,.82);
 cursor:pointer;
-font-size:14px;
-transition:.18s
+transition:.18s;
 }
-.custom-option:hover{
-background:rgba(34,197,94,.20);
-color:white
-}
-.custom-option.selected{
-background:rgba(34,197,94,.28);
-color:white
-}
-.method-title{margin:20px 0 12px;font-weight:800;font-size:15px}
-.methods{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:16px}
+.option:hover,.option.selected{background:rgba(34,197,94,.22);color:white}
+
+.method-title{font-size:15px;font-weight:900;margin:20px 0 12px}
+.methods{display:grid;gap:10px;margin-bottom:14px}
 .method{
-border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.055);
-border-radius:20px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.045);
+border-radius:19px;
 padding:14px;
-cursor:pointer;
-transition:.22s;
-min-height:86px;
-position:relative;
 display:flex;
 gap:13px;
-align-items:center
+align-items:center;
+position:relative;
+cursor:pointer;
+transition:.2s;
 }
-.method:hover{background:rgba(255,255,255,.09);transform:translateY(-1px)}
-.method.active{
-border-color:var(--green);
-background:rgba(34,197,94,.16);
-box-shadow:0 0 0 1px rgba(34,197,94,.35)
-}
+.method:hover{transform:translateY(-1px);background:rgba(255,255,255,.075)}
+.method.active{border-color:var(--green);background:rgba(34,197,94,.15);box-shadow:0 0 0 1px rgba(34,197,94,.25)}
 .method.active:after{
 content:"✓";
-position:absolute;
-top:12px;
-right:12px;
-width:22px;height:22px;
-border-radius:50%;
-background:var(--green);
-color:black;
-display:flex;
-align-items:center;justify-content:center;
-font-weight:900;font-size:14px
+position:absolute;right:13px;top:13px;
+width:22px;height:22px;border-radius:50%;
+background:var(--green);color:#07120b;
+display:flex;align-items:center;justify-content:center;
+font-weight:900;
 }
 .method-icon{
 width:46px;height:46px;border-radius:16px;
-background:rgba(255,255,255,.09);
+background:rgba(255,255,255,.08);
 display:flex;align-items:center;justify-content:center;
-flex:none
+flex:none;
 }
-.method strong{display:block;font-size:14px;margin-bottom:6px}
-.method span{display:block;color:var(--soft);font-size:12px;line-height:1.45}
+.method strong{font-size:14px;display:block;margin-bottom:5px}
+.method span{font-size:12px;color:var(--soft);line-height:1.4;display:block;max-width:330px}
 .mobile-note{
 display:none;
 border:1px solid rgba(34,197,94,.35);
 background:rgba(34,197,94,.10);
-color:rgba(255,255,255,.78);
-border-radius:16px;
-padding:13px;
+border-radius:15px;
+padding:12px;
 font-size:12.5px;
 line-height:1.55;
-margin-bottom:14px
+color:rgba(255,255,255,.78);
+margin-bottom:14px;
 }
-.checkbox{
+.auth{
 display:none;
 gap:10px;
-align-items:flex-start;
-color:rgba(255,255,255,.62);
 font-size:12.5px;
 line-height:1.55;
-margin:16px 0
+color:var(--muted);
+margin:15px 0;
 }
-.checkbox input{width:auto;margin-top:2px;padding:0}
-.pay-btn{
+.auth input{width:auto;margin-top:2px;padding:0}
+.btn{
 width:100%;
 border:0;
-border-radius:18px;
-padding:17px;
 background:white;
 color:black;
+padding:17px;
+border-radius:17px;
 font-size:16px;
 font-weight:900;
 cursor:pointer;
-transition:.22s
+transition:.2s;
 }
-.pay-btn:hover{opacity:.92;transform:translateY(-1px)}
-.note{color:var(--soft);font-size:12.5px;line-height:1.6;margin-top:13px}
-.footer{
-border-top:1px solid var(--border);
-padding:36px 0;
-margin-top:20px;
-color:var(--soft)
-}
-.footer-inner{
-width:min(1220px,92%);
-margin:auto;
-display:grid;
-grid-template-columns:1.2fr 1fr;
-gap:28px;
-font-size:13px
-}
-.footer h4{color:white;margin-bottom:10px}
-.footer p{line-height:1.65}
-.footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end}
-.footer-links a:hover{color:white}
-.redirect-modal{
+.btn:hover{opacity:.92;transform:translateY(-1px)}
+.note{font-size:12.5px;color:var(--soft);line-height:1.55;margin-top:13px}
+
+.modal{
 display:none;
 position:fixed;
 inset:0;
-z-index:100;
+z-index:200;
 background:rgba(0,0,0,.72);
-backdrop-filter:blur(15px);
+backdrop-filter:blur(14px);
 align-items:center;
 justify-content:center;
-padding:20px
+padding:20px;
 }
 .modal-box{
 width:min(560px,100%);
-border:1px solid var(--border);
-background:#0f151d;
-border-radius:30px;
-padding:30px;
-box-shadow:0 28px 90px rgba(0,0,0,.72)
+background:#111827;
+border:1px solid var(--line);
+border-radius:28px;
+padding:28px;
+box-shadow:0 28px 90px rgba(0,0,0,.65);
 }
-.modal-box h2{font-size:27px;margin-bottom:10px}
-.modal-box p{color:var(--muted);line-height:1.7;margin-bottom:16px}
+.modal-box h2{font-size:26px;margin-bottom:9px}
+.modal-box p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:16px}
 .summary{
-background:rgba(255,255,255,.06);
-border:1px solid var(--border);
-border-radius:20px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.055);
+border-radius:18px;
 padding:16px;
-color:rgba(255,255,255,.78);
 font-size:14px;
 line-height:1.85;
-margin-bottom:18px
+color:rgba(255,255,255,.80);
+margin-bottom:16px;
 }
 .modal-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
-.modal-actions button{
-border:0;border-radius:16px;padding:15px;
-font-weight:800;cursor:pointer
-}
+.modal-actions button{border:0;border-radius:15px;padding:15px;font-weight:900;cursor:pointer}
+.cancel{background:rgba(255,255,255,.08);color:white;border:1px solid var(--line)!important}
 .continue{background:white;color:black}
-.cancel{background:rgba(255,255,255,.09);color:white;border:1px solid var(--border)!important}
-@media(max-width:1040px){
+
+footer{
+border-top:1px solid var(--line);
+padding:32px 0;
+color:var(--soft);
+}
+.footer-inner{
+width:min(1180px,92%);
+margin:auto;
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
+font-size:13px;
+line-height:1.6;
+}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap}
+.footer-links a{color:var(--soft);text-decoration:none}
+.footer-links a:hover{color:white}
+
+@media(max-width:1020px){
 .hero{grid-template-columns:1fr}
-.hero-left{position:static}
-.grid-info,.process{grid-template-columns:1fr}
-.footer-inner{grid-template-columns:1fr}
-.footer-links{justify-content:flex-start}
+.feature-grid{grid-template-columns:1fr}
 }
 @media(max-width:560px){
-.nav-links{display:none}
-.two-col,.modal-actions{grid-template-columns:1fr}
-.form-card{padding:20px;border-radius:26px}
-.brand-title{font-size:18px;letter-spacing:2.5px}
-h1{letter-spacing:-1.8px}
+.nav nav{display:none}
+.two,.modal-actions{grid-template-columns:1fr}
+.form-card{padding:20px}
+h1{letter-spacing:-1.6px}
 }
 </style>
 </head>
@@ -429,13 +379,15 @@ h1{letter-spacing:-1.8px}
 <header>
 <div class="nav">
 <div class="brand">
-<div class="brand-mark">P</div>
+<div class="logo-box">
+<img src="https://raw.githubusercontent.com/OguzGurer/peaqopay-site/main/piiko.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;logo-fallback&quot;>P</span>'">
+</div>
 <div>
 <div class="brand-title">PEAQO TECH</div>
 <div class="brand-sub">SECURE B2B PAYMENT PORTAL</div>
 </div>
 </div>
-<nav class="nav-links">
+<nav>
 <a href="#payment">Ödeme</a>
 <a href="#about">Hakkında</a>
 <a href="#contact">İletişim</a>
@@ -444,59 +396,53 @@ h1{letter-spacing:-1.8px}
 </header>
 
 <main>
-
 <section class="hero">
 
-<div class="hero-left" id="about">
+<div class="left" id="about">
+<div class="kicker"><span class="kicker-dot"></span> Kurumsal ödeme ve teknik tedarik çözümü</div>
 
 <h1>Güvenli Ödeme <span>Portalınız.</span></h1>
 
 <div class="slogan">PEAQO TECH — Çözümde her zaman yanınızda.</div>
 
-<p class="hero-text">
+<p class="lead">
 PEAQO TECH olarak elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında müşterilerimize hızlı, güvenilir ve teklif bazlı çözümler sunuyoruz. Bu portal üzerinden avans, teklif, fatura ve cari hesap ödemelerinizi kolay, hızlı ve güvenli şekilde başlatabilirsiniz.
 </p>
 
-<div class="hero-highlight">
+<div class="visual-card">
 <h3>Site Hakkında Bilgilendirme</h3>
 <p>
-Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve güvenli tamamlaması için hazırlanmıştır. Kart bilgileriniz PEAQO TECH tarafından saklanmaz. Kartlı ödemeler, lisanslı ödeme kuruluşu altyapısı üzerinden tamamlanır.
+Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve güvenli tamamlaması için hazırlanmıştır. Kart bilgileriniz PEAQO TECH tarafından saklanmaz. Kartlı ödemeler lisanslı ödeme kuruluşu altyapısı üzerinden tamamlanır.
 </p>
 </div>
 
-<div class="grid-info">
-<div class="info-mini">
-<div class="info-icon">
-<svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h8l-1 8 11-14h-8l0-6z" stroke="white" stroke-width="1.7" stroke-linejoin="round"/></svg>
+<div class="feature-grid">
+<div class="feature">
+<div class="icon">
+<svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h8l-1 8 11-14h-8V2z" stroke="white" stroke-width="1.7" stroke-linejoin="round"/></svg>
 </div>
 <strong>Teknik Tedarik</strong>
 <span>Elektrik malzemeleri, hırdavat ve el aletleri tedariği.</span>
 </div>
 
-<div class="info-mini">
-<div class="info-icon">
+<div class="feature">
+<div class="icon">
 <svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h9" stroke="white" stroke-width="1.7" stroke-linecap="round"/></svg>
 </div>
 <strong>Teklif Bazlı Ödeme</strong>
 <span>Teklif, fatura, avans ve cari hesap ödemeleri.</span>
 </div>
 
-<div class="info-mini">
-<div class="info-icon">
+<div class="feature">
+<div class="icon">
 <svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="white" stroke-width="1.7"/><path d="M9 12l2 2 4-5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </div>
 <strong>Güvenli Altyapı</strong>
-<span>SSL bağlantısı ve ödeme kuruluşu yönlendirmesi.</span>
+<span>SSL bağlantısı ve güvenli ödeme yönlendirmesi.</span>
 </div>
 </div>
 
-<div class="process">
-<div class="step"><div class="step-num">1</div><strong>Bilgileri Girin</strong><span>Firma, iletişim ve ödeme bilgilerinizi doldurun.</span></div>
-<div class="step"><div class="step-num">2</div><strong>Yöntem Seçin</strong><span>Kart, mobil ödeme veya EFT/Havale seçeneğiyle ilerleyin.</span></div>
-<div class="step"><div class="step-num">3</div><strong>Güvenli Tamamlayın</strong><span>İşlem özetini onaylayarak ödeme adımına geçin.</span></div>
-</div>
-
-<div class="supply-card">
+<div class="products">
 <h3>Faaliyet Alanlarımız</h3>
 <div class="tags">
 <span class="tag">Elektrik Malzemeleri</span>
@@ -507,17 +453,15 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 <span class="tag">Kurumsal Tedarik</span>
 </div>
 </div>
-
 </div>
 
 <div class="form-card" id="payment">
-
 <div class="form-head">
 <div>
 <h2>Ödeme Bilgileri</h2>
 <p>Bilgilerinizi girin, ödeme türünü ve ödeme yöntemini seçin.</p>
 </div>
-<div class="ssl-pill">SSL Aktif</div>
+<div class="ssl">SSL Aktif</div>
 </div>
 
 <div class="notice">
@@ -529,69 +473,68 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 <div class="field">
 <label>Ad Soyad / Firma Ünvanı</label>
 <input id="name" type="text" placeholder="Örn: ABC Teknik Ltd. Şti." required>
-<span class="valid-check">✓</span>
-<div class="error-text">En az 3 karakter giriniz.</div>
+<span class="check">✓</span>
+<div class="err">En az 3 karakter giriniz.</div>
 </div>
 
 <div class="field">
 <label>T.C. Kimlik No / Vergi No</label>
 <input id="tax" type="text" maxlength="11" inputmode="numeric" placeholder="T.C. veya VKN giriniz" required>
-<span class="valid-check">✓</span>
-<div class="error-text">Geçerli 10 haneli VKN veya 11 haneli T.C. giriniz.</div>
+<span class="check">✓</span>
+<div class="err">Geçerli 10 haneli VKN veya 11 haneli T.C. giriniz.</div>
 </div>
 
-<div class="two-col">
+<div class="two">
 <div class="field">
 <label>Telefon</label>
 <input id="phone" type="tel" placeholder="05XX XXX XX XX" required>
-<span class="valid-check">✓</span>
-<div class="error-text">Geçerli telefon giriniz.</div>
+<span class="check">✓</span>
+<div class="err">Geçerli telefon giriniz.</div>
 </div>
 
 <div class="field">
 <label>E-posta</label>
 <input id="email" type="email" placeholder="ornek@firma.com" required>
-<span class="valid-check">✓</span>
-<div class="error-text">Geçerli e-posta giriniz.</div>
+<span class="check">✓</span>
+<div class="err">Geçerli e-posta giriniz.</div>
 </div>
 </div>
 
 <div class="field" id="typeField">
 <label>Ödeme Türü</label>
 <div class="custom-select" id="customSelect">
-<div class="custom-select-trigger" id="selectTrigger">Ödeme türü seçiniz</div>
-<div class="custom-options" id="customOptions">
-<div class="custom-option" data-value="Avans Ödemesi">Avans Ödemesi</div>
-<div class="custom-option" data-value="Teklif Ödemesi">Teklif Ödemesi</div>
-<div class="custom-option" data-value="Fatura Ödemesi">Fatura Ödemesi</div>
-<div class="custom-option" data-value="Cari Hesap Ödemesi">Cari Hesap Ödemesi</div>
-<div class="custom-option" data-value="Diğer">Diğer</div>
+<div class="select-trigger" id="selectTrigger">Ödeme türü seçiniz</div>
+<div class="options" id="customOptions">
+<div class="option" data-value="Avans Ödemesi">Avans Ödemesi</div>
+<div class="option" data-value="Teklif Ödemesi">Teklif Ödemesi</div>
+<div class="option" data-value="Fatura Ödemesi">Fatura Ödemesi</div>
+<div class="option" data-value="Cari Hesap Ödemesi">Cari Hesap Ödemesi</div>
+<div class="option" data-value="Diğer">Diğer</div>
 </div>
 </div>
 <input type="hidden" id="paymentType" required>
-<span class="valid-check">✓</span>
-<div class="error-text">Ödeme türü seçiniz.</div>
+<span class="check">✓</span>
+<div class="err">Ödeme türü seçiniz.</div>
 </div>
 
 <div class="field">
 <label id="descriptionLabel">Açıklama</label>
 <textarea id="description" maxlength="120" placeholder="Ödeme açıklamasını giriniz"></textarea>
-<span class="valid-check">✓</span>
-<div class="error-text">Açıklama en az 10 karakter olmalıdır.</div>
+<span class="check">✓</span>
+<div class="err">Açıklama en az 10 karakter olmalıdır.</div>
 </div>
-<div class="char-count" id="charCount">0 / 120</div>
+<div class="count" id="charCount">0 / 120</div>
 
 <div class="field">
 <label>Ödenecek Tutar</label>
 <input id="amount" type="text" inputmode="decimal" placeholder="₺ Tutar giriniz" required>
-<span class="valid-check">✓</span>
-<div class="error-text">Geçerli bir tutar giriniz.</div>
+<span class="check">✓</span>
+<div class="err">Geçerli bir tutar giriniz.</div>
 </div>
 
 <div class="method-title">Ödeme Yöntemi Seçin</div>
 
 <div class="methods">
-
 <div class="method" data-method="Kredi Kartı / Banka Kartı">
 <div class="method-icon">
 <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="white" stroke-width="1.8"/><path d="M3 10h18M7 15h4" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -621,41 +564,32 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 <span>Banka transferi ile ödeme bildirimi oluşturun.</span>
 </div>
 </div>
-
 </div>
 
 <div class="mobile-note" id="mobileNote">
 Mobil ödeme seçeneğinde operatörün sunduğu hizmet komisyon tutarı müşteriden tahsil edilir. Nihai ödeme tutarı ödeme ekranında gösterilir.
 </div>
 
-<label class="checkbox" id="authBox">
+<label class="auth" id="authBox">
 <input id="authCheck" type="checkbox">
 <span>Ödeme işleminde kullanılan kartın kullanım yetkisinin tarafıma ait olduğunu ve işlem bilgilerinin doğruluğunu kabul ediyorum. Şüpheli işlemlerde ek doğrulama talep edilebilir.</span>
 </label>
 
-<button class="pay-btn" type="submit">Ödeme İşlemine Devam Et</button>
+<button class="btn" type="submit">Ödeme İşlemine Devam Et</button>
 
-<p class="note">
-Bu formda kart bilgisi talep edilmez. Kartlı ödeme işlemleri güvenli ödeme kuruluşu ekranında tamamlanır.
-</p>
+<p class="note">Bu formda kart bilgisi talep edilmez. Kartlı ödeme işlemleri güvenli ödeme kuruluşu ekranında tamamlanır.</p>
 
 </form>
-
 </div>
-
 </section>
-
 </main>
 
-<footer class="footer" id="contact">
+<footer id="contact">
 <div class="footer-inner">
 <div>
-<h4>PEAQO TECH</h4>
-<p>
-Elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında kurumsal çözümler sunar.
-<br>
+<strong>PEAQO TECH</strong><br>
+Elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında kurumsal çözümler sunar.<br>
 E-posta: info@peaqopay.com · Telefon: +90 5XX XXX XX XX · Antalya / Türkiye
-</p>
 </div>
 <div class="footer-links">
 <a href="#">KVKK</a>
@@ -667,11 +601,11 @@ E-posta: info@peaqopay.com · Telefon: +90 5XX XXX XX XX · Antalya / Türkiye
 </div>
 </footer>
 
-<div class="redirect-modal" id="redirectModal">
+<div class="modal" id="modal">
 <div class="modal-box">
 <h2>İşlem Bilgilerinizi Kontrol Edin</h2>
 <p>Devam etmeden önce ödeme bilgilerinizi kontrol edin. Bilgiler doğruysa seçilen ödeme yöntemine göre güvenli adıma geçebilirsiniz.</p>
-<div class="summary" id="summaryBox"></div>
+<div class="summary" id="summary"></div>
 <div class="modal-actions">
 <button class="cancel" onclick="closeModal()">Bilgileri Düzenle</button>
 <button class="continue" id="continueButton" onclick="continuePayment()">Onayla ve Devam Et</button>
@@ -686,15 +620,15 @@ const descriptionLabel=document.getElementById('descriptionLabel');
 const charCount=document.getElementById('charCount');
 const methods=document.querySelectorAll('.method');
 const form=document.getElementById('paymentForm');
-const modal=document.getElementById('redirectModal');
-const summaryBox=document.getElementById('summaryBox');
+const modal=document.getElementById('modal');
+const summary=document.getElementById('summary');
 const amount=document.getElementById('amount');
 const mobileNote=document.getElementById('mobileNote');
 const authBox=document.getElementById('authBox');
 const authCheck=document.getElementById('authCheck');
 const selectTrigger=document.getElementById('selectTrigger');
 const customOptions=document.getElementById('customOptions');
-const options=document.querySelectorAll('.custom-option');
+const options=document.querySelectorAll('.option');
 const continueButton=document.getElementById('continueButton');
 let selectedMethod='';
 
@@ -706,7 +640,7 @@ const placeholders={
 'Diğer':'Ödeme nedeninizi açıklayınız.'
 };
 
-selectTrigger.addEventListener('click',()=>{customOptions.classList.toggle('open')});
+selectTrigger.addEventListener('click',()=>customOptions.classList.toggle('open'));
 
 options.forEach(option=>{
 option.addEventListener('click',()=>{
@@ -719,120 +653,9 @@ description.style.display='block';
 charCount.style.display='block';
 description.placeholder=placeholders[paymentType.value];
 descriptionLabel.textContent=paymentType.value+' Açıklaması';
-validateType();
-validateDescription();
+validateType(true);
+validateDescription(true);
 });
 });
 
-document.addEventListener('click',(e)=>{
-if(!document.getElementById('customSelect').contains(e.target)){
-customOptions.classList.remove('open');
-}
-});
-
-function setFieldState(el,isValid){
-const field=el.closest('.field');
-if(!field)return;
-field.classList.remove('valid','invalid');
-if(el.value.trim().length===0)return;
-field.classList.add(isValid?'valid':'invalid');
-}
-
-function repeated(v){return /^(\d)\1+$/.test(v)}
-function validateName(){const el=document.getElementById('name');const ok=el.value.trim().length>=3;setFieldState(el,ok);return ok}
-function validatePhone(){const el=document.getElementById('phone');let d=el.value.replace(/\D/g,'');const ok=(d.length===10&&d.startsWith('5'))||(d.length===11&&d.startsWith('05'));setFieldState(el,ok);return ok}
-function validateEmail(){const el=document.getElementById('email');const ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());setFieldState(el,ok);return ok}
-function validateTax(){const el=document.getElementById('tax');const v=el.value.replace(/\D/g,'');el.value=v;let ok=false;if(v.length===10&&!repeated(v))ok=true;if(v.length===11&&!repeated(v)&&v[0]!=='0')ok=true;setFieldState(el,ok);return ok}
-function validateType(){const ok=paymentType.value!=='';setFieldState(paymentType,ok);return ok}
-function validateDescription(){const ok=description.style.display==='none'||description.value.trim().length>=10;setFieldState(description,ok);charCount.textContent=description.value.length+' / 120';charCount.classList.toggle('good',ok);return ok}
-function validateAmount(){let raw=amount.value.replace(/\./g,'').replace(',','.');let num=parseFloat(raw);const ok=!isNaN(num)&&num>0;setFieldState(amount,ok);return ok}
-
-description.addEventListener('input',validateDescription);
-document.getElementById('name').addEventListener('input',validateName);
-document.getElementById('phone').addEventListener('input',validatePhone);
-document.getElementById('email').addEventListener('input',validateEmail);
-document.getElementById('tax').addEventListener('input',validateTax);
-
-amount.addEventListener('input',function(e){
-let value=e.target.value.replace(/[^0-9,]/g,'');
-let parts=value.split(',');
-let integerPart=parts[0].replace(/\./g,'');
-let decimalPart=parts[1];
-integerPart=integerPart.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
-if(decimalPart!==undefined){decimalPart=decimalPart.substring(0,2);value=integerPart+','+decimalPart}else{value=integerPart}
-e.target.value=value;
-validateAmount();
-});
-
-methods.forEach(method=>{
-method.addEventListener('click',function(){
-methods.forEach(m=>m.classList.remove('active'));
-this.classList.add('active');
-selectedMethod=this.dataset.method;
-mobileNote.style.display=selectedMethod==='Mobil Ödeme'?'block':'none';
-const needsAuth=selectedMethod==='Kredi Kartı / Banka Kartı';
-authBox.style.display=needsAuth?'flex':'none';
-authCheck.required=needsAuth;
-if(!needsAuth)authCheck.checked=false;
-});
-});
-
-document.querySelectorAll('input,textarea').forEach((el,index,all)=>{
-el.addEventListener('keydown',function(e){
-if(e.key==='Enter'){
-e.preventDefault();
-const next=all[index+1];
-if(next)next.focus();
-}
-});
-});
-
-form.addEventListener('submit',function(e){
-e.preventDefault();
-
-const ok=validateName()&validatePhone()&validateEmail()&validateTax()&validateType()&validateDescription()&validateAmount();
-
-if(!selectedMethod){alert('Lütfen ödeme yöntemi seçiniz.');return}
-if(!ok){alert('Lütfen eksik veya hatalı alanları düzeltiniz.');return}
-if(selectedMethod==='Kredi Kartı / Banka Kartı'&&!authCheck.checked){alert('Kart kullanım onayını işaretleyiniz.');return}
-
-let extraNote='';
-if(selectedMethod==='Kredi Kartı / Banka Kartı'){
-extraNote='<br><strong>Not:</strong> Kart bilgileriniz PEAQO TECH tarafından saklanmaz. Ödeme işlemi güvenli ödeme kuruluşu ekranında tamamlanır.';
-continueButton.textContent='Onayla ve Güvenli Ödeme Ekranına Git';
-}
-if(selectedMethod==='Mobil Ödeme'){
-extraNote='<br><strong>Not:</strong> Operatör hizmet komisyonu müşteriden tahsil edilir. Nihai ödeme tutarı ödeme ekranında gösterilir.';
-continueButton.textContent='Onayla ve Mobil Ödeme Ekranına Git';
-}
-if(selectedMethod==='EFT / Havale'){
-extraNote='<br><strong>Not:</strong> Devam ettiğinizde banka transferi için gerekli hesap bilgileri görüntülenecektir.';
-continueButton.textContent='Onayla ve Havale Bilgilerini Görüntüle';
-}
-
-summaryBox.innerHTML=`
-<strong>Firma / Kişi:</strong> ${document.getElementById('name').value}<br>
-<strong>T.C. / VKN:</strong> ${document.getElementById('tax').value}<br>
-<strong>Telefon:</strong> ${document.getElementById('phone').value}<br>
-<strong>E-posta:</strong> ${document.getElementById('email').value}<br>
-<strong>Ödeme Türü:</strong> ${paymentType.value}<br>
-<strong>Açıklama:</strong> ${description.value}<br>
-<strong>Ödeme Yöntemi:</strong> ${selectedMethod}<br>
-<strong>Ödenecek Tutar:</strong> ₺${amount.value}
-${extraNote}
-`;
-
-modal.style.display='flex';
-});
-
-function closeModal(){modal.style.display='none'}
-
-function continuePayment(){
-if(selectedMethod==='Kredi Kartı / Banka Kartı'){window.location.href='#'}
-else if(selectedMethod==='Mobil Ödeme'){window.location.href='#'}
-else if(selectedMethod==='EFT / Havale'){window.location.href='#'}
-}
-</script>
-
-</body>
-</html>
+document.addEventListener('click',e=>{
