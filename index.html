@@ -1,375 +1,736 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PEAQO TECH | Güvenli Ödeme Portalı</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
 :root{
---bg:#0d1320;
---card:#111827;
---card2:#151f2e;
---line:rgba(255,255,255,.12);
---text:#fff;
---muted:rgba(255,255,255,.68);
---soft:rgba(255,255,255,.42);
+--bg:#070707;
+--card:#121212;
+--card2:#181818;
+--yellow:#facc15;
+--yellow2:#fbbf24;
 --green:#22c55e;
 --red:#ef4444;
---blue:#60a5fa;
+--line:rgba(255,255,255,.09);
+--muted:rgba(255,255,255,.64);
+--soft:rgba(255,255,255,.42);
 }
+
 body{
 background:
-radial-gradient(circle at top left,rgba(96,165,250,.16),transparent 28%),
-radial-gradient(circle at bottom right,rgba(34,197,94,.13),transparent 30%),
-linear-gradient(180deg,#0d1320,#090d15);
-color:var(--text);
+radial-gradient(circle at top right,rgba(250,204,21,.16),transparent 28%),
+radial-gradient(circle at bottom left,rgba(250,204,21,.06),transparent 30%),
+linear-gradient(180deg,#050505,#0c0c0c);
+color:white;
 min-height:100vh;
 }
+
 header{
-position:sticky;top:0;z-index:50;
-background:rgba(13,19,32,.82);
-backdrop-filter:blur(18px);
-border-bottom:1px solid var(--line)
+position:sticky;
+top:0;
+z-index:99;
+background:rgba(7,7,7,.82);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(--line);
 }
+
 .nav{
-width:min(1180px,92%);
+width:min(1200px,92%);
 margin:auto;
-padding:17px 0;
+padding:18px 0;
 display:flex;
 align-items:center;
 justify-content:space-between;
 }
-.brand{display:flex;align-items:center;gap:14px}
-.logo-box{
-width:44px;height:44px;border-radius:14px;
-background:#fff;
-display:flex;align-items:center;justify-content:center;
+
+.brand{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo{
+width:48px;
+height:48px;
+border-radius:16px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
 overflow:hidden;
 }
-.logo-box img{width:100%;height:100%;object-fit:cover}
-.logo-fallback{color:#0d1320;font-weight:900;font-size:18px}
-.brand-title{font-size:22px;font-weight:900;letter-spacing:3px}
-.brand-sub{font-size:11px;color:var(--soft);letter-spacing:1.5px;margin-top:3px}
-.nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
-.nav a:hover{color:#fff}
 
-main{width:min(1180px,92%);margin:auto}
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.logo span{
+color:black;
+font-weight:900;
+font-size:20px;
+}
+
+.brand-title{
+font-size:24px;
+font-weight:900;
+letter-spacing:3px;
+}
+
+.brand-sub{
+font-size:11px;
+letter-spacing:2px;
+color:rgba(255,255,255,.45);
+margin-top:4px;
+}
+
+.nav-links{
+display:flex;
+gap:24px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:rgba(255,255,255,.65);
+font-size:14px;
+transition:.2s;
+}
+
+.nav-links a:hover{
+color:var(--yellow);
+}
+
+main{
+width:min(1200px,92%);
+margin:auto;
+}
+
 .hero{
-padding:58px 0 42px;
+padding:58px 0 45px;
 display:grid;
-grid-template-columns:1fr 480px;
+grid-template-columns:1fr 500px;
 gap:52px;
 align-items:start;
 }
+
 .left{
-padding-top:16px;
+padding-top:8px;
 }
-.kicker{
+
+.top-badge{
 display:inline-flex;
 align-items:center;
-gap:8px;
-padding:9px 13px;
-border:1px solid var(--line);
+gap:10px;
+padding:10px 15px;
 border-radius:999px;
-background:rgba(255,255,255,.05);
-color:var(--muted);
+background:rgba(250,204,21,.08);
+border:1px solid rgba(250,204,21,.25);
+color:#fde68a;
 font-size:13px;
-margin-bottom:22px;
+margin-bottom:24px;
 }
-.kicker-dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 18px var(--green)}
+
+.badge-dot{
+width:9px;
+height:9px;
+border-radius:50%;
+background:var(--yellow);
+box-shadow:0 0 18px var(--yellow);
+}
+
 h1{
-font-size:clamp(42px,6vw,72px);
-line-height:1;
-letter-spacing:-2.8px;
+font-size:clamp(48px,7vw,78px);
+line-height:.95;
+letter-spacing:-3px;
 margin-bottom:18px;
+font-weight:900;
 }
-h1 span{display:block;color:rgba(255,255,255,.55)}
+
+h1 span{
+display:block;
+color:rgba(255,255,255,.36);
+}
+
 .slogan{
 font-size:18px;
-font-weight:800;
-color:#fff;
-margin-bottom:18px;
+font-weight:900;
+color:var(--yellow);
+margin-bottom:20px;
 }
-.lead{
-font-size:17px;
-line-height:1.75;
-color:var(--muted);
-max-width:650px;
-}
-.visual-card{
-margin-top:28px;
-border:1px solid var(--line);
-background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
-border-radius:30px;
-padding:24px;
-position:relative;
-overflow:hidden;
-}
-.visual-card:before{
-content:"";
-position:absolute;
-right:-70px;
-top:-70px;
-width:190px;
-height:190px;
-background:rgba(34,197,94,.14);
-border-radius:50%;
-filter:blur(10px);
-}
-.visual-card h3{font-size:20px;margin-bottom:10px}
-.visual-card p{font-size:14px;line-height:1.7;color:var(--muted)}
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin-top:18px;
-}
-.feature{
-border:1px solid var(--line);
-background:rgba(255,255,255,.045);
-border-radius:22px;
-padding:18px;
-}
-.icon{
-width:42px;height:42px;border-radius:15px;
-background:rgba(255,255,255,.08);
-display:flex;align-items:center;justify-content:center;
-margin-bottom:12px;
-}
-.feature strong{font-size:14px;display:block;margin-bottom:8px}
-.feature span{font-size:12.5px;color:var(--soft);line-height:1.5;display:block}
-.products{
-margin-top:18px;
-border:1px solid var(--line);
-background:rgba(255,255,255,.04);
-border-radius:24px;
-padding:20px;
-}
-.products h3{font-size:18px;margin-bottom:12px}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{font-size:12px;color:rgba(255,255,255,.75);border:1px solid var(--line);background:rgba(255,255,255,.045);padding:8px 11px;border-radius:999px}
 
-.form-card{
-background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
+.desc{
+font-size:17px;
+line-height:1.8;
+color:var(--muted);
+max-width:680px;
+}
+
+.info-box{
+margin-top:28px;
+background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
 border:1px solid var(--line);
 border-radius:30px;
 padding:26px;
-box-shadow:0 24px 70px rgba(0,0,0,.42);
+position:relative;
+overflow:hidden;
 }
-.form-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px}
-.form-head h2{font-size:27px;margin-bottom:7px}
-.form-head p{font-size:14px;color:var(--soft);line-height:1.45}
-.ssl{
-border:1px solid rgba(34,197,94,.35);
-background:rgba(34,197,94,.10);
-color:#d7ffe5;
-border-radius:999px;
-padding:8px 12px;
+
+.info-box::before{
+content:"";
+position:absolute;
+right:-80px;
+top:-80px;
+width:230px;
+height:230px;
+border-radius:50%;
+background:rgba(250,204,21,.08);
+filter:blur(10px);
+}
+
+.info-box h3{
+font-size:22px;
+margin-bottom:12px;
+position:relative;
+}
+
+.info-box p{
+font-size:14px;
+line-height:1.75;
+color:var(--muted);
+position:relative;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:20px;
+}
+
+.card{
+background:rgba(255,255,255,.035);
+border:1px solid var(--line);
+border-radius:24px;
+padding:18px;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-2px);
+border-color:rgba(250,204,21,.3);
+}
+
+.card-icon{
+width:44px;
+height:44px;
+border-radius:16px;
+background:rgba(250,204,21,.09);
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:14px;
+font-size:22px;
+}
+
+.card strong{
+display:block;
+margin-bottom:8px;
+font-size:14px;
+}
+
+.card span{
+display:block;
 font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.55);
+}
+
+.tags{
+margin-top:20px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.tag{
+padding:10px 13px;
+border-radius:999px;
+background:rgba(255,255,255,.04);
+border:1px solid var(--line);
+font-size:12px;
+color:rgba(255,255,255,.72);
+}
+
+.form-card{
+background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+border:1px solid var(--line);
+border-radius:32px;
+padding:28px;
+box-shadow:0 25px 70px rgba(0,0,0,.42);
+}
+
+.form-head{
+display:flex;
+justify-content:space-between;
+gap:15px;
+margin-bottom:18px;
+}
+
+.form-head h2{
+font-size:30px;
+margin-bottom:7px;
+}
+
+.form-head p{
+font-size:14px;
+line-height:1.6;
+color:rgba(255,255,255,.5);
+}
+
+.ssl{
+padding:9px 14px;
+border-radius:999px;
+background:rgba(34,197,94,.12);
+border:1px solid rgba(34,197,94,.35);
+font-size:12px;
+color:#d8ffe4;
 height:max-content;
 white-space:nowrap;
 }
+
 .notice{
-font-size:12.5px;
-line-height:1.55;
-color:var(--muted);
+padding:14px;
+border-radius:18px;
+background:rgba(255,255,255,.03);
 border:1px solid var(--line);
-background:rgba(0,0,0,.20);
-border-radius:16px;
-padding:13px;
-margin-bottom:16px;
+font-size:12px;
+line-height:1.7;
+color:rgba(255,255,255,.62);
+margin-bottom:18px;
 }
-.field{position:relative;margin-bottom:14px}
-label{font-size:13px;color:rgba(255,255,255,.72);display:block;margin-bottom:8px}
+
+.field{
+margin-bottom:15px;
+position:relative;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-size:13px;
+color:rgba(255,255,255,.68);
+}
+
 input,textarea{
 width:100%;
-border:1px solid rgba(255,255,255,.13);
-background:rgba(0,0,0,.28);
+padding:15px 45px 15px 15px;
+background:#111;
+border:1px solid rgba(255,255,255,.09);
+border-radius:17px;
 color:white;
-border-radius:16px;
-padding:15px 44px 15px 15px;
 font-size:15px;
 outline:none;
 transition:.2s;
 }
-input:focus,textarea:focus{border-color:rgba(34,197,94,.65);background:rgba(0,0,0,.38)}
-textarea{display:none;min-height:88px;resize:none}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.check{display:none;position:absolute;right:15px;bottom:14px;color:var(--green);font-size:18px;font-weight:900}
-.field.valid .check{display:block}
-.field.invalid input,.field.invalid textarea,.field.invalid .select-trigger{border-color:var(--red)}
-.err{display:none;color:#ff8d8d;font-size:11.5px;margin-top:6px}
-.field.invalid .err{display:block}
-.count{display:none;text-align:right;color:var(--soft);font-size:12px;margin-top:-7px;margin-bottom:10px}
-.count.good{color:var(--green)}
 
-.custom-select{position:relative}
+input:focus,
+textarea:focus{
+border-color:rgba(250,204,21,.55);
+}
+
+textarea{
+min-height:90px;
+resize:none;
+display:none;
+}
+
+.two{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.field.valid input,
+.field.valid textarea,
+.field.valid .select-trigger{
+border-color:rgba(34,197,94,.65);
+}
+
+.field.invalid input,
+.field.invalid textarea,
+.field.invalid .select-trigger{
+border-color:rgba(239,68,68,.8);
+}
+
+.check{
+display:none;
+position:absolute;
+right:15px;
+bottom:15px;
+font-size:18px;
+font-weight:900;
+color:var(--green);
+}
+
+.field.valid .check{
+display:block;
+}
+
+.error{
+display:none;
+margin-top:6px;
+font-size:11px;
+color:#ff8e8e;
+}
+
+.field.invalid .error{
+display:block;
+}
+
+.count{
+display:none;
+text-align:right;
+font-size:12px;
+color:rgba(255,255,255,.42);
+margin-top:-8px;
+margin-bottom:10px;
+}
+
+.count.good{
+color:var(--green);
+}
+
+.select{
+position:relative;
+}
+
 .select-trigger{
 width:100%;
-border:1px solid rgba(255,255,255,.13);
-background:rgba(0,0,0,.28);
-color:white;
-border-radius:16px;
 padding:15px;
-font-size:15px;
+background:#111;
+border:1px solid rgba(255,255,255,.09);
+border-radius:17px;
 cursor:pointer;
+transition:.2s;
+color:white;
 }
-.select-trigger:after{content:"⌄";float:right;color:var(--muted)}
+
+.select-trigger:hover{
+border-color:rgba(250,204,21,.35);
+}
+
+.select-trigger::after{
+content:"⌄";
+float:right;
+color:rgba(255,255,255,.55);
+}
+
 .options{
 display:none;
 position:absolute;
 top:calc(100% + 8px);
-left:0;right:0;
-z-index:80;
-background:#131c2a;
-border:1px solid var(--line);
+left:0;
+right:0;
+background:#181818;
+border:1px solid rgba(255,255,255,.09);
 border-radius:18px;
 overflow:hidden;
-box-shadow:0 22px 55px rgba(0,0,0,.55);
+z-index:50;
+box-shadow:0 20px 45px rgba(0,0,0,.45);
 }
-.options.open{display:block}
+
+.options.open{
+display:block;
+}
+
 .option{
 padding:14px 16px;
-font-size:14px;
-color:rgba(255,255,255,.82);
 cursor:pointer;
 transition:.18s;
+font-size:14px;
 }
-.option:hover,.option.selected{background:rgba(34,197,94,.22);color:white}
 
-.method-title{font-size:15px;font-weight:900;margin:20px 0 12px}
-.methods{display:grid;gap:10px;margin-bottom:14px}
-.method{
-border:1px solid var(--line);
-background:rgba(255,255,255,.045);
-border-radius:19px;
-padding:14px;
-display:flex;
-gap:13px;
-align-items:center;
-position:relative;
-cursor:pointer;
-transition:.2s;
+.option:hover{
+background:rgba(250,204,21,.12);
+color:var(--yellow);
 }
-.method:hover{transform:translateY(-1px);background:rgba(255,255,255,.075)}
-.method.active{border-color:var(--green);background:rgba(34,197,94,.15);box-shadow:0 0 0 1px rgba(34,197,94,.25)}
-.method.active:after{
-content:"✓";
-position:absolute;right:13px;top:13px;
-width:22px;height:22px;border-radius:50%;
-background:var(--green);color:#07120b;
-display:flex;align-items:center;justify-content:center;
+
+.option.selected{
+background:rgba(34,197,94,.18);
+color:#b8ffd1;
+}
+
+.method-title{
+margin:20px 0 12px;
+font-size:15px;
 font-weight:900;
 }
+
+.methods{
+display:grid;
+gap:12px;
+margin-bottom:15px;
+}
+
+.method{
+padding:15px;
+border-radius:20px;
+background:rgba(255,255,255,.035);
+border:1px solid rgba(255,255,255,.09);
+display:flex;
+gap:14px;
+align-items:center;
+cursor:pointer;
+transition:.2s;
+position:relative;
+}
+
+.method:hover{
+border-color:rgba(250,204,21,.32);
+transform:translateY(-1px);
+}
+
+.method.active{
+background:rgba(34,197,94,.13);
+border-color:rgba(34,197,94,.58);
+}
+
+.method.active::after{
+content:"✓";
+position:absolute;
+right:14px;
+top:14px;
+width:23px;
+height:23px;
+border-radius:50%;
+background:var(--green);
+color:black;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+font-weight:900;
+}
+
 .method-icon{
-width:46px;height:46px;border-radius:16px;
-background:rgba(255,255,255,.08);
-display:flex;align-items:center;justify-content:center;
+width:48px;
+height:48px;
+border-radius:16px;
+background:rgba(250,204,21,.09);
+display:flex;
+align-items:center;
+justify-content:center;
 flex:none;
 }
-.method strong{font-size:14px;display:block;margin-bottom:5px}
-.method span{font-size:12px;color:var(--soft);line-height:1.4;display:block;max-width:330px}
+
+.method strong{
+display:block;
+margin-bottom:5px;
+font-size:14px;
+}
+
+.method span{
+display:block;
+font-size:12px;
+line-height:1.55;
+color:rgba(255,255,255,.55);
+padding-right:30px;
+}
+
 .mobile-note{
 display:none;
-border:1px solid rgba(34,197,94,.35);
-background:rgba(34,197,94,.10);
-border-radius:15px;
-padding:12px;
-font-size:12.5px;
-line-height:1.55;
-color:rgba(255,255,255,.78);
-margin-bottom:14px;
+padding:13px;
+border-radius:16px;
+background:rgba(250,204,21,.08);
+border:1px solid rgba(250,204,21,.25);
+font-size:12px;
+line-height:1.7;
+color:rgba(255,255,255,.72);
+margin-bottom:15px;
 }
+
 .auth{
 display:none;
 gap:10px;
-font-size:12.5px;
-line-height:1.55;
-color:var(--muted);
+font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.58);
 margin:15px 0;
 }
-.auth input{width:auto;margin-top:2px;padding:0}
+
+.auth input{
+width:auto;
+padding:0;
+margin-top:2px;
+}
+
 .btn{
 width:100%;
-border:0;
-background:white;
-color:black;
 padding:17px;
-border-radius:17px;
+border:none;
+border-radius:18px;
+background:linear-gradient(90deg,var(--yellow),var(--yellow2));
+color:black;
 font-size:16px;
 font-weight:900;
 cursor:pointer;
 transition:.2s;
 }
-.btn:hover{opacity:.92;transform:translateY(-1px)}
-.note{font-size:12.5px;color:var(--soft);line-height:1.55;margin-top:13px}
+
+.btn:hover{
+transform:translateY(-1px);
+opacity:.95;
+}
+
+.note{
+margin-top:13px;
+font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.45);
+}
 
 .modal{
 display:none;
 position:fixed;
 inset:0;
-z-index:200;
-background:rgba(0,0,0,.72);
-backdrop-filter:blur(14px);
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(10px);
+z-index:999;
 align-items:center;
 justify-content:center;
 padding:20px;
 }
+
 .modal-box{
 width:min(560px,100%);
-background:#111827;
-border:1px solid var(--line);
+background:#141414;
+border:1px solid rgba(255,255,255,.09);
 border-radius:28px;
 padding:28px;
-box-shadow:0 28px 90px rgba(0,0,0,.65);
 }
-.modal-box h2{font-size:26px;margin-bottom:9px}
-.modal-box p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:16px}
-.summary{
-border:1px solid var(--line);
-background:rgba(255,255,255,.055);
-border-radius:18px;
-padding:16px;
+
+.modal-box h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.modal-box p{
 font-size:14px;
-line-height:1.85;
-color:rgba(255,255,255,.80);
+line-height:1.7;
+color:rgba(255,255,255,.58);
 margin-bottom:16px;
 }
-.modal-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
-.modal-actions button{border:0;border-radius:15px;padding:15px;font-weight:900;cursor:pointer}
-.cancel{background:rgba(255,255,255,.08);color:white;border:1px solid var(--line)!important}
-.continue{background:white;color:black}
+
+.summary{
+padding:16px;
+border-radius:18px;
+background:rgba(255,255,255,.035);
+border:1px solid rgba(255,255,255,.09);
+font-size:14px;
+line-height:1.9;
+color:rgba(255,255,255,.75);
+margin-bottom:18px;
+}
+
+.modal-actions{
+display:grid;
+grid-template-columns:1fr 1.4fr;
+gap:10px;
+}
+
+.modal-actions button{
+padding:15px;
+border:none;
+border-radius:16px;
+font-weight:900;
+cursor:pointer;
+}
+
+.cancel{
+background:rgba(255,255,255,.06);
+color:white;
+}
+
+.continue{
+background:linear-gradient(90deg,var(--yellow),var(--yellow2));
+color:black;
+}
 
 footer{
-border-top:1px solid var(--line);
-padding:32px 0;
-color:var(--soft);
+margin-top:25px;
+padding:35px 0;
+border-top:1px solid rgba(255,255,255,.06);
 }
+
 .footer-inner{
-width:min(1180px,92%);
+width:min(1200px,92%);
 margin:auto;
 display:flex;
 justify-content:space-between;
 gap:20px;
 flex-wrap:wrap;
 font-size:13px;
-line-height:1.6;
+line-height:1.7;
+color:rgba(255,255,255,.48);
 }
-.footer-links{display:flex;gap:14px;flex-wrap:wrap}
-.footer-links a{color:var(--soft);text-decoration:none}
-.footer-links a:hover{color:white}
 
-@media(max-width:1020px){
-.hero{grid-template-columns:1fr}
-.feature-grid{grid-template-columns:1fr}
+.footer-links{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
 }
+
+.footer-links a{
+color:rgba(255,255,255,.48);
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:var(--yellow);
+}
+
+@media(max-width:1000px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+}
+
 @media(max-width:560px){
-.nav nav{display:none}
-.two,.modal-actions{grid-template-columns:1fr}
-.form-card{padding:20px}
-h1{letter-spacing:-1.6px}
+
+.nav-links{
+display:none;
+}
+
+.two,
+.modal-actions{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:50px;
+}
+
+.form-card{
+padding:20px;
+}
+
 }
 </style>
 </head>
@@ -379,87 +740,92 @@ h1{letter-spacing:-1.6px}
 <header>
 <div class="nav">
 <div class="brand">
-<div class="logo-box">
-<img src="https://raw.githubusercontent.com/OguzGurer/peaqopay-site/main/piiko.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;logo-fallback&quot;>P</span>'">
+<div class="logo">
+<img src="https://raw.githubusercontent.com/OguzGurer/peaqopay-site/main/piiko.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='<span>P</span>'">
 </div>
 <div>
 <div class="brand-title">PEAQO TECH</div>
 <div class="brand-sub">SECURE B2B PAYMENT PORTAL</div>
 </div>
 </div>
-<nav>
+
+<div class="nav-links">
 <a href="#payment">Ödeme</a>
 <a href="#about">Hakkında</a>
 <a href="#contact">İletişim</a>
-</nav>
+</div>
 </div>
 </header>
 
 <main>
+
 <section class="hero">
 
 <div class="left" id="about">
-<div class="kicker"><span class="kicker-dot"></span> Kurumsal ödeme ve teknik tedarik çözümü</div>
 
-<h1>Güvenli Ödeme <span>Portalınız.</span></h1>
+<div class="top-badge">
+<div class="badge-dot"></div>
+Kurumsal Güvenli Ödeme Sistemi
+</div>
 
-<div class="slogan">PEAQO TECH — Çözümde her zaman yanınızda.</div>
+<h1>
+Güvenli Ödeme
+<span>Portalınız.</span>
+</h1>
 
-<p class="lead">
+<div class="slogan">
+PEAQO TECH — Çözümde her zaman yanınızda.
+</div>
+
+<div class="desc">
 PEAQO TECH olarak elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında müşterilerimize hızlı, güvenilir ve teklif bazlı çözümler sunuyoruz. Bu portal üzerinden avans, teklif, fatura ve cari hesap ödemelerinizi kolay, hızlı ve güvenli şekilde başlatabilirsiniz.
-</p>
+</div>
 
-<div class="visual-card">
-<h3>Site Hakkında Bilgilendirme</h3>
+<div class="info-box">
+<h3>Kurumsal Tahsilat Sistemi</h3>
 <p>
-Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve güvenli tamamlaması için hazırlanmıştır. Kart bilgileriniz PEAQO TECH tarafından saklanmaz. Kartlı ödemeler lisanslı ödeme kuruluşu altyapısı üzerinden tamamlanır.
+Bu ödeme portalı müşterilerimizin teklif, fatura ve cari hesap ödemelerini güvenli şekilde gerçekleştirmesi için hazırlanmıştır. Kart bilgileriniz tarafımızda saklanmaz. Kartlı ödemeler güvenli ödeme kuruluşu altyapısı üzerinden tamamlanır.
 </p>
 </div>
 
-<div class="feature-grid">
-<div class="feature">
-<div class="icon">
-<svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h8l-1 8 11-14h-8V2z" stroke="white" stroke-width="1.7" stroke-linejoin="round"/></svg>
-</div>
+<div class="cards">
+
+<div class="card">
+<div class="card-icon">⚡</div>
 <strong>Teknik Tedarik</strong>
-<span>Elektrik malzemeleri, hırdavat ve el aletleri tedariği.</span>
+<span>Elektrik malzemeleri, teknik ürünler ve endüstriyel çözümler.</span>
 </div>
 
-<div class="feature">
-<div class="icon">
-<svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h9" stroke="white" stroke-width="1.7" stroke-linecap="round"/></svg>
-</div>
-<strong>Teklif Bazlı Ödeme</strong>
-<span>Teklif, fatura, avans ve cari hesap ödemeleri.</span>
+<div class="card">
+<div class="card-icon">🛡️</div>
+<strong>SSL Güvenliği</strong>
+<span>Şifreli bağlantı ve güvenli ödeme yönlendirmesi.</span>
 </div>
 
-<div class="feature">
-<div class="icon">
-<svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="white" stroke-width="1.7"/><path d="M9 12l2 2 4-5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</div>
-<strong>Güvenli Altyapı</strong>
-<span>SSL bağlantısı ve güvenli ödeme yönlendirmesi.</span>
-</div>
+<div class="card">
+<div class="card-icon">🏢</div>
+<strong>B2B Tahsilat</strong>
+<span>Teklif, fatura, cari hesap ve avans ödemeleri.</span>
 </div>
 
-<div class="products">
-<h3>Faaliyet Alanlarımız</h3>
+</div>
+
 <div class="tags">
-<span class="tag">Elektrik Malzemeleri</span>
-<span class="tag">Hırdavat</span>
-<span class="tag">El Aletleri</span>
-<span class="tag">Teknik Ürün Tedariği</span>
-<span class="tag">Proje Bazlı Satış</span>
-<span class="tag">Kurumsal Tedarik</span>
+<div class="tag">Elektrik Malzemeleri</div>
+<div class="tag">Hırdavat</div>
+<div class="tag">El Aletleri</div>
+<div class="tag">Kurumsal Tedarik</div>
+<div class="tag">Teknik Ürünler</div>
 </div>
-</div>
+
 </div>
 
 <div class="form-card" id="payment">
+
 <div class="form-head">
 <div>
 <h2>Ödeme Bilgileri</h2>
-<p>Bilgilerinizi girin, ödeme türünü ve ödeme yöntemini seçin.</p>
+<p>Bilgilerinizi girin, ödeme türünü ve ödeme yönteminizi seçin.</p>
 </div>
 <div class="ssl">SSL Aktif</div>
 </div>
@@ -474,35 +840,37 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 <label>Ad Soyad / Firma Ünvanı</label>
 <input id="name" type="text" placeholder="Örn: ABC Teknik Ltd. Şti." required>
 <span class="check">✓</span>
-<div class="err">En az 3 karakter giriniz.</div>
+<div class="error">En az 3 karakter giriniz.</div>
 </div>
 
 <div class="field">
 <label>T.C. Kimlik No / Vergi No</label>
 <input id="tax" type="text" maxlength="11" inputmode="numeric" placeholder="T.C. veya VKN giriniz" required>
 <span class="check">✓</span>
-<div class="err">Geçerli 10 haneli VKN veya 11 haneli T.C. giriniz.</div>
+<div class="error">Geçerli 10 haneli VKN veya 11 haneli T.C. giriniz.</div>
 </div>
 
 <div class="two">
+
 <div class="field">
 <label>Telefon</label>
 <input id="phone" type="tel" placeholder="05XX XXX XX XX" required>
 <span class="check">✓</span>
-<div class="err">Geçerli telefon giriniz.</div>
+<div class="error">Geçerli telefon giriniz.</div>
 </div>
 
 <div class="field">
 <label>E-posta</label>
 <input id="email" type="email" placeholder="ornek@firma.com" required>
 <span class="check">✓</span>
-<div class="err">Geçerli e-posta giriniz.</div>
+<div class="error">Geçerli e-posta giriniz.</div>
 </div>
+
 </div>
 
 <div class="field" id="typeField">
 <label>Ödeme Türü</label>
-<div class="custom-select" id="customSelect">
+<div class="select" id="customSelect">
 <div class="select-trigger" id="selectTrigger">Ödeme türü seçiniz</div>
 <div class="options" id="customOptions">
 <div class="option" data-value="Avans Ödemesi">Avans Ödemesi</div>
@@ -514,30 +882,35 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 </div>
 <input type="hidden" id="paymentType" required>
 <span class="check">✓</span>
-<div class="err">Ödeme türü seçiniz.</div>
+<div class="error">Ödeme türü seçiniz.</div>
 </div>
 
 <div class="field">
 <label id="descriptionLabel">Açıklama</label>
 <textarea id="description" maxlength="120" placeholder="Ödeme açıklamasını giriniz"></textarea>
 <span class="check">✓</span>
-<div class="err">Açıklama en az 10 karakter olmalıdır.</div>
+<div class="error">Açıklama en az 10 karakter olmalıdır.</div>
 </div>
+
 <div class="count" id="charCount">0 / 120</div>
 
 <div class="field">
 <label>Ödenecek Tutar</label>
 <input id="amount" type="text" inputmode="decimal" placeholder="₺ Tutar giriniz" required>
 <span class="check">✓</span>
-<div class="err">Geçerli bir tutar giriniz.</div>
+<div class="error">Geçerli bir tutar giriniz.</div>
 </div>
 
 <div class="method-title">Ödeme Yöntemi Seçin</div>
 
 <div class="methods">
+
 <div class="method" data-method="Kredi Kartı / Banka Kartı">
 <div class="method-icon">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="white" stroke-width="1.8"/><path d="M3 10h18M7 15h4" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+<rect x="3" y="5" width="18" height="14" rx="3" stroke="white" stroke-width="1.8"/>
+<path d="M3 10h18M7 15h4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
 </div>
 <div>
 <strong>Kredi Kartı / Banka Kartı</strong>
@@ -547,7 +920,10 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 
 <div class="method" data-method="Mobil Ödeme">
 <div class="method-icon">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="white" stroke-width="1.8"/><path d="M11 18h2M10 6h4" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+<rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="white" stroke-width="1.8"/>
+<path d="M11 18h2M10 6h4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
 </div>
 <div>
 <strong>Mobil Ödeme</strong>
@@ -557,13 +933,16 @@ Bu ödeme portalı, müşterilerimizin ödeme süreçlerini daha düzenli ve gü
 
 <div class="method" data-method="EFT / Havale">
 <div class="method-icon">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 10h16M6 10v8M10 10v8M14 10v8M18 10v8M3 20h18M12 3l8 5H4l8-5z" stroke="white" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+<path d="M4 10h16M6 10v8M10 10v8M14 10v8M18 10v8M3 20h18M12 3l8 5H4l8-5z" stroke="white" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 </div>
 <div>
 <strong>EFT / Havale</strong>
 <span>Banka transferi ile ödeme bildirimi oluşturun.</span>
 </div>
 </div>
+
 </div>
 
 <div class="mobile-note" id="mobileNote">
@@ -577,11 +956,16 @@ Mobil ödeme seçeneğinde operatörün sunduğu hizmet komisyon tutarı müşte
 
 <button class="btn" type="submit">Ödeme İşlemine Devam Et</button>
 
-<p class="note">Bu formda kart bilgisi talep edilmez. Kartlı ödeme işlemleri güvenli ödeme kuruluşu ekranında tamamlanır.</p>
+<p class="note">
+Bu formda kart bilgisi talep edilmez. Kartlı ödeme işlemleri güvenli ödeme kuruluşu ekranında tamamlanır.
+</p>
 
 </form>
+
 </div>
+
 </section>
+
 </main>
 
 <footer id="contact">
@@ -591,6 +975,7 @@ Mobil ödeme seçeneğinde operatörün sunduğu hizmet komisyon tutarı müşte
 Elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında kurumsal çözümler sunar.<br>
 E-posta: info@peaqopay.com · Telefon: +90 5XX XXX XX XX · Antalya / Türkiye
 </div>
+
 <div class="footer-links">
 <a href="#">KVKK</a>
 <a href="#">Gizlilik Politikası</a>
@@ -606,6 +991,7 @@ E-posta: info@peaqopay.com · Telefon: +90 5XX XXX XX XX · Antalya / Türkiye
 <h2>İşlem Bilgilerinizi Kontrol Edin</h2>
 <p>Devam etmeden önce ödeme bilgilerinizi kontrol edin. Bilgiler doğruysa seçilen ödeme yöntemine göre güvenli adıma geçebilirsiniz.</p>
 <div class="summary" id="summary"></div>
+
 <div class="modal-actions">
 <button class="cancel" onclick="closeModal()">Bilgileri Düzenle</button>
 <button class="continue" id="continueButton" onclick="continuePayment()">Onayla ve Devam Et</button>
@@ -630,6 +1016,7 @@ const selectTrigger=document.getElementById('selectTrigger');
 const customOptions=document.getElementById('customOptions');
 const options=document.querySelectorAll('.option');
 const continueButton=document.getElementById('continueButton');
+
 let selectedMethod='';
 
 const placeholders={
@@ -640,22 +1027,273 @@ const placeholders={
 'Diğer':'Ödeme nedeninizi açıklayınız.'
 };
 
-selectTrigger.addEventListener('click',()=>customOptions.classList.toggle('open'));
+selectTrigger.addEventListener('click',()=>{
+customOptions.classList.toggle('open');
+});
 
 options.forEach(option=>{
 option.addEventListener('click',()=>{
 options.forEach(o=>o.classList.remove('selected'));
 option.classList.add('selected');
+
 paymentType.value=option.dataset.value;
 selectTrigger.textContent=option.dataset.value;
 customOptions.classList.remove('open');
+
 description.style.display='block';
 charCount.style.display='block';
 description.placeholder=placeholders[paymentType.value];
 descriptionLabel.textContent=paymentType.value+' Açıklaması';
+
 validateType(true);
 validateDescription(true);
 });
 });
 
-document.addEventListener('click',e=>{
+document.addEventListener('click',(e)=>{
+if(!document.getElementById('customSelect').contains(e.target)){
+customOptions.classList.remove('open');
+}
+});
+
+function fieldState(el,ok,force=false){
+const field=el.closest('.field');
+if(!field)return;
+
+field.classList.remove('valid','invalid');
+
+if(!force && el.value.trim().length===0){
+return;
+}
+
+field.classList.add(ok?'valid':'invalid');
+}
+
+function repeated(v){
+return /^(\d)\1+$/.test(v);
+}
+
+function validateName(force=false){
+const el=document.getElementById('name');
+const ok=el.value.trim().length>=3;
+fieldState(el,ok,force);
+return ok;
+}
+
+function validateTax(force=false){
+const el=document.getElementById('tax');
+const v=el.value.replace(/\D/g,'');
+el.value=v;
+
+let ok=false;
+
+if(v.length===10 && !repeated(v)){
+ok=true;
+}
+
+if(v.length===11 && !repeated(v) && v[0]!=='0'){
+ok=true;
+}
+
+fieldState(el,ok,force);
+return ok;
+}
+
+function validatePhone(force=false){
+const el=document.getElementById('phone');
+let d=el.value.replace(/\D/g,'');
+
+const ok=
+(d.length===10 && d.startsWith('5')) ||
+(d.length===11 && d.startsWith('05'));
+
+fieldState(el,ok,force);
+return ok;
+}
+
+function validateEmail(force=false){
+const el=document.getElementById('email');
+
+const ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
+
+fieldState(el,ok,force);
+return ok;
+}
+
+function validateType(force=false){
+const ok=paymentType.value!=='';
+fieldState(paymentType,ok,force);
+return ok;
+}
+
+function validateDescription(force=false){
+const ok=description.style.display==='none' || description.value.trim().length>=10;
+
+fieldState(description,ok,force);
+
+charCount.textContent=description.value.length+' / 120';
+
+if(ok){
+charCount.classList.add('good');
+}else{
+charCount.classList.remove('good');
+}
+
+return ok;
+}
+
+function validateAmount(force=false){
+let raw=amount.value.replace(/\./g,'').replace(',','.');
+let num=parseFloat(raw);
+
+const ok=!isNaN(num)&&num>0;
+
+fieldState(amount,ok,force);
+return ok;
+}
+
+document.getElementById('name').addEventListener('input',()=>validateName());
+document.getElementById('tax').addEventListener('input',()=>validateTax());
+document.getElementById('phone').addEventListener('input',()=>validatePhone());
+document.getElementById('email').addEventListener('input',()=>validateEmail());
+description.addEventListener('input',()=>validateDescription());
+
+amount.addEventListener('input',(e)=>{
+let value=e.target.value.replace(/[^0-9,]/g,'');
+
+let parts=value.split(',');
+let integerPart=parts[0].replace(/\./g,'');
+let decimalPart=parts[1];
+
+integerPart=integerPart.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+
+if(decimalPart!==undefined){
+decimalPart=decimalPart.substring(0,2);
+value=integerPart+','+decimalPart;
+}else{
+value=integerPart;
+}
+
+e.target.value=value;
+
+validateAmount();
+});
+
+methods.forEach(method=>{
+method.addEventListener('click',function(){
+methods.forEach(m=>m.classList.remove('active'));
+
+this.classList.add('active');
+
+selectedMethod=this.dataset.method;
+
+mobileNote.style.display=selectedMethod==='Mobil Ödeme'?'block':'none';
+
+const needsAuth=selectedMethod==='Kredi Kartı / Banka Kartı';
+
+authBox.style.display=needsAuth?'flex':'none';
+
+authCheck.required=needsAuth;
+
+if(!needsAuth){
+authCheck.checked=false;
+}
+});
+});
+
+document.querySelectorAll('input,textarea').forEach((el,index,all)=>{
+el.addEventListener('keydown',(e)=>{
+if(e.key==='Enter'){
+e.preventDefault();
+const next=all[index+1];
+if(next)next.focus();
+}
+});
+});
+
+form.addEventListener('submit',(e)=>{
+e.preventDefault();
+
+const ok =
+validateName(true) &
+validateTax(true) &
+validatePhone(true) &
+validateEmail(true) &
+validateType(true) &
+validateDescription(true) &
+validateAmount(true);
+
+if(!selectedMethod){
+alert('Lütfen ödeme yöntemi seçiniz.');
+return;
+}
+
+if(!ok){
+alert('Lütfen kırmızı işaretli eksik veya hatalı alanları düzeltiniz.');
+return;
+}
+
+if(selectedMethod==='Kredi Kartı / Banka Kartı' && !authCheck.checked){
+alert('Kart kullanım onayını işaretleyiniz.');
+return;
+}
+
+let note='';
+let btn='Onayla ve Devam Et';
+
+if(selectedMethod==='Kredi Kartı / Banka Kartı'){
+note='<br><strong>Not:</strong> Kart bilgileriniz PEAQO TECH tarafından saklanmaz. Ödeme işlemi güvenli ödeme kuruluşu ekranında tamamlanır.';
+btn='Onayla ve Güvenli Ödeme Ekranına Git';
+}
+
+if(selectedMethod==='Mobil Ödeme'){
+note='<br><strong>Not:</strong> Operatör hizmet komisyonu müşteriden tahsil edilir. Nihai ödeme tutarı ödeme ekranında gösterilir.';
+btn='Onayla ve Mobil Ödeme Ekranına Git';
+}
+
+if(selectedMethod==='EFT / Havale'){
+note='<br><strong>Not:</strong> Devam ettiğinizde banka transferi için gerekli hesap bilgileri görüntülenecektir.';
+btn='Onayla ve Havale Bilgilerini Görüntüle';
+}
+
+continueButton.textContent=btn;
+
+summary.innerHTML=`
+<strong>Firma / Kişi:</strong> ${document.getElementById('name').value}<br>
+<strong>T.C. / VKN:</strong> ${document.getElementById('tax').value}<br>
+<strong>Telefon:</strong> ${document.getElementById('phone').value}<br>
+<strong>E-posta:</strong> ${document.getElementById('email').value}<br>
+<strong>Ödeme Türü:</strong> ${paymentType.value}<br>
+<strong>Açıklama:</strong> ${description.value}<br>
+<strong>Ödeme Yöntemi:</strong> ${selectedMethod}<br>
+<strong>Ödenecek Tutar:</strong> ₺${amount.value}
+${note}
+`;
+
+modal.style.display='flex';
+});
+
+function closeModal(){
+modal.style.display='none';
+}
+
+function continuePayment(){
+
+if(selectedMethod==='Kredi Kartı / Banka Kartı'){
+window.location.href='#';
+}
+
+else if(selectedMethod==='Mobil Ödeme'){
+window.location.href='#';
+}
+
+else if(selectedMethod==='EFT / Havale'){
+window.location.href='#';
+}
+
+}
+
+</script>
+
+</body>
+</html>
