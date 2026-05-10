@@ -6,326 +6,989 @@
 <title>PEAQO TECH | Güvenli Kurumsal Ödeme Portalı</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-:root{--bg:#050505;--border:rgba(255,255,255,.12);--muted:rgba(255,255,255,.58);--soft:rgba(255,255,255,.38);--green:#22c55e}
-body{background:radial-gradient(circle at top right,rgba(255,255,255,.18),transparent 28%),radial-gradient(circle at bottom left,rgba(255,255,255,.09),transparent 30%),var(--bg);color:white;min-height:100vh}
-header{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav{width:min(1180px,92%);margin:auto;padding:18px 0;display:flex;align-items:center;justify-content:space-between}
-.brand-title{font-size:22px;font-weight:800;letter-spacing:3.5px}
-.brand-sub{font-size:11px;color:var(--soft);letter-spacing:1.4px;margin-top:3px}
-main{width:min(1180px,92%);margin:auto}
-.hero{padding:76px 0 44px;display:grid;grid-template-columns:1fr 480px;gap:52px}
-.badge{display:inline-flex;gap:9px;border:1px solid var(--border);background:rgba(255,255,255,.055);border-radius:999px;padding:10px 14px;color:rgba(255,255,255,.72);font-size:14px;margin-bottom:28px}
-.dot{width:8px;height:8px;border-radius:50%;background:white;box-shadow:0 0 16px rgba(255,255,255,.8)}
-h1{font-size:clamp(44px,7vw,82px);line-height:.96;letter-spacing:-3px;font-weight:800;margin-bottom:28px}
-h1 span{color:rgba(255,255,255,.55);display:block}
-.hero-text{color:var(--muted);font-size:19px;line-height:1.75;max-width:660px}
-.trust-row{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:660px}
-.trust-box{border:1px solid var(--border);background:rgba(255,255,255,.055);border-radius:22px;padding:18px}
-.trust-box strong{display:block;font-size:15px;margin-bottom:8px}
-.trust-box p{color:var(--soft);font-size:13px;line-height:1.55}
-.form-card{background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));border:1px solid var(--border);border-radius:32px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.45);backdrop-filter:blur(22px)}
-.form-head{display:flex;justify-content:space-between;gap:15px;margin-bottom:22px}
-.form-head h2{font-size:28px;margin-bottom:8px}
-.form-head p{color:var(--soft);font-size:14px;line-height:1.5}
-.ssl-pill{border:1px solid var(--border);color:rgba(255,255,255,.62);border-radius:999px;padding:8px 11px;font-size:12px;white-space:nowrap}
-.field{margin-bottom:14px;position:relative}
-label{display:block;font-size:13px;color:rgba(255,255,255,.62);margin-bottom:8px}
-input,select,textarea{width:100%;border:1px solid rgba(255,255,255,.11);background:rgba(0,0,0,.40);color:white;border-radius:17px;padding:15px 44px 15px 16px;font-size:15px;outline:none;transition:.22s}
-select option{color:black}
-input:focus,select:focus,textarea:focus{border-color:rgba(255,255,255,.46);background:rgba(0,0,0,.55)}
-textarea{resize:none;min-height:88px;display:none}
-.valid-check{display:none;position:absolute;right:15px;bottom:14px;color:var(--green);font-size:18px;font-weight:900}
-.field.valid .valid-check{display:block}
-.char-count{display:none;text-align:right;color:rgba(255,255,255,.42);font-size:12px;margin-top:-7px;margin-bottom:10px}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.method-title{margin:20px 0 12px;font-weight:700;font-size:15px}
-.methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.method{border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.055);border-radius:18px;padding:13px;cursor:pointer;transition:.22s;min-height:82px;position:relative}
-.method.active{border-color:var(--green);background:rgba(34,197,94,.16);box-shadow:0 0 0 1px rgba(34,197,94,.35)}
-.method.active:after{content:"✓";position:absolute;top:10px;right:12px;width:22px;height:22px;border-radius:50%;background:var(--green);color:black;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px}
-.method strong{display:block;font-size:14px;margin-bottom:7px}
-.method span{display:block;color:var(--soft);font-size:12px;line-height:1.45}
-.mobile-note{display:none;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.10);color:rgba(255,255,255,.78);border-radius:16px;padding:13px;font-size:12.5px;line-height:1.55;margin-bottom:14px}
-.checkbox{display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.58);font-size:12.5px;line-height:1.55;margin:16px 0}
-.checkbox input{width:auto;margin-top:2px}
-.pay-btn{width:100%;border:0;border-radius:18px;padding:17px;background:white;color:black;font-size:16px;font-weight:800;cursor:pointer}
-.note{color:var(--soft);font-size:12.5px;line-height:1.6;margin-top:13px}
-.sections{padding:34px 0 70px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.info-card{border:1px solid var(--border);background:rgba(255,255,255,.055);border-radius:28px;padding:25px}
-.info-card h3{font-size:20px;margin-bottom:12px}
-.info-card p{color:var(--muted);line-height:1.7;font-size:14px}
-.redirect-modal{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);backdrop-filter:blur(15px);align-items:center;justify-content:center;padding:20px}
-.modal-box{width:min(520px,100%);border:1px solid var(--border);background:#0c0c0c;border-radius:30px;padding:30px}
-.modal-box h3{font-size:28px;margin-bottom:12px}
-.modal-box p{color:var(--muted);line-height:1.7;margin-bottom:20px}
-.summary{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:20px;padding:16px;color:rgba(255,255,255,.72);font-size:14px;line-height:1.8;margin-bottom:18px}
-.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.modal-actions button{border:0;border-radius:16px;padding:15px;font-weight:700;cursor:pointer}
-.continue{background:white;color:black}.cancel{background:rgba(255,255,255,.09);color:white;border:1px solid var(--border)!important}
-footer{border-top:1px solid var(--border);padding:34px 0;color:var(--soft)}
-.footer-inner{width:min(1180px,92%);margin:auto;display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;font-size:13px}
-.footer-links{display:flex;gap:18px;flex-wrap:wrap}
-@media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:48px}.trust-row,.sections{grid-template-columns:1fr}}
-@media(max-width:560px){.two-col,.methods,.modal-actions{grid-template-columns:1fr}.form-card{padding:20px;border-radius:26px}.brand-title{font-size:18px;letter-spacing:2.5px}h1{letter-spacing:-1.8px}}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+--bg:#050505;
+--border:rgba(255,255,255,.12);
+--muted:rgba(255,255,255,.58);
+--soft:rgba(255,255,255,.38);
+--green:#22c55e;
+--red:#ef4444;
+}
+
+body{
+background:
+radial-gradient(circle at top right,rgba(255,255,255,.18),transparent 28%),
+radial-gradient(circle at bottom left,rgba(255,255,255,.09),transparent 30%),
+var(--bg);
+color:white;
+min-height:100vh;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(0,0,0,.72);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(--border);
+}
+
+.nav{
+width:min(1180px,92%);
+margin:auto;
+padding:18px 0;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.brand-title{
+font-size:22px;
+font-weight:800;
+letter-spacing:3.5px;
+}
+
+.brand-sub{
+font-size:11px;
+color:var(--soft);
+letter-spacing:1.4px;
+margin-top:3px;
+}
+
+main{
+width:min(1180px,92%);
+margin:auto;
+}
+
+.hero{
+padding:76px 0 44px;
+display:grid;
+grid-template-columns:1fr 480px;
+gap:52px;
+align-items:start;
+}
+
+.badge{
+display:inline-flex;
+gap:9px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.055);
+border-radius:999px;
+padding:10px 14px;
+color:rgba(255,255,255,.72);
+font-size:14px;
+margin-bottom:28px;
+}
+
+.dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:white;
+box-shadow:0 0 16px rgba(255,255,255,.8);
+}
+
+h1{
+font-size:clamp(44px,7vw,82px);
+line-height:.96;
+letter-spacing:-3px;
+font-weight:800;
+margin-bottom:28px;
+}
+
+h1 span{
+color:rgba(255,255,255,.55);
+display:block;
+}
+
+.hero-text{
+color:var(--muted);
+font-size:19px;
+line-height:1.75;
+max-width:660px;
+}
+
+.form-card{
+background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
+border:1px solid var(--border);
+border-radius:32px;
+padding:28px;
+box-shadow:0 24px 70px rgba(0,0,0,.45);
+backdrop-filter:blur(22px);
+}
+
+.form-head{
+display:flex;
+justify-content:space-between;
+margin-bottom:22px;
+}
+
+.form-head h2{
+font-size:28px;
+margin-bottom:8px;
+}
+
+.form-head p{
+color:var(--soft);
+font-size:14px;
+line-height:1.5;
+}
+
+.ssl-pill{
+border:1px solid var(--border);
+color:rgba(255,255,255,.62);
+border-radius:999px;
+padding:8px 11px;
+font-size:12px;
+white-space:nowrap;
+}
+
+.field{
+margin-bottom:14px;
+position:relative;
+}
+
+label{
+display:block;
+font-size:13px;
+color:rgba(255,255,255,.62);
+margin-bottom:8px;
+}
+
+input,select,textarea{
+width:100%;
+border:1px solid rgba(255,255,255,.11);
+background:rgba(0,0,0,.40);
+color:white;
+border-radius:17px;
+padding:15px 44px 15px 16px;
+font-size:15px;
+outline:none;
+transition:.22s;
+}
+
+select option{
+color:black;
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:rgba(255,255,255,.46);
+background:rgba(0,0,0,.55);
+}
+
+textarea{
+resize:none;
+min-height:88px;
+display:none;
+}
+
+.valid-check{
+display:none;
+position:absolute;
+right:15px;
+bottom:14px;
+color:var(--green);
+font-size:18px;
+font-weight:900;
+}
+
+.field.valid .valid-check{
+display:block;
+}
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea{
+border-color:rgba(239,68,68,.55);
+}
+
+.error-text{
+display:none;
+color:rgba(239,68,68,.9);
+font-size:11.5px;
+margin-top:6px;
+}
+
+.field.invalid .error-text{
+display:block;
+}
+
+.char-count{
+display:none;
+text-align:right;
+color:rgba(255,255,255,.42);
+font-size:12px;
+margin-top:-7px;
+margin-bottom:10px;
+}
+
+.two-col{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.method-title{
+margin:20px 0 12px;
+font-weight:700;
+font-size:15px;
+}
+
+.methods{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:10px;
+margin-bottom:16px;
+}
+
+.method{
+border:1px solid rgba(255,255,255,.11);
+background:rgba(255,255,255,.055);
+border-radius:18px;
+padding:13px;
+cursor:pointer;
+transition:.22s;
+min-height:82px;
+position:relative;
+}
+
+.method:hover{
+background:rgba(255,255,255,.09);
+}
+
+.method.active{
+border-color:var(--green);
+background:rgba(34,197,94,.16);
+box-shadow:0 0 0 1px rgba(34,197,94,.35);
+}
+
+.method.active:after{
+content:"✓";
+position:absolute;
+top:10px;
+right:12px;
+width:22px;
+height:22px;
+border-radius:50%;
+background:var(--green);
+color:black;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+font-size:14px;
+}
+
+.method strong{
+display:block;
+font-size:14px;
+margin-bottom:7px;
+}
+
+.method span{
+display:block;
+color:var(--soft);
+font-size:12px;
+line-height:1.45;
+}
+
+.mobile-note{
+display:none;
+border:1px solid rgba(34,197,94,.35);
+background:rgba(34,197,94,.10);
+color:rgba(255,255,255,.78);
+border-radius:16px;
+padding:13px;
+font-size:12.5px;
+line-height:1.55;
+margin-bottom:14px;
+}
+
+.checkbox{
+display:none;
+gap:10px;
+align-items:flex-start;
+color:rgba(255,255,255,.58);
+font-size:12.5px;
+line-height:1.55;
+margin:16px 0;
+}
+
+.checkbox input{
+width:auto;
+margin-top:2px;
+padding:0;
+}
+
+.pay-btn{
+width:100%;
+border:0;
+border-radius:18px;
+padding:17px;
+background:white;
+color:black;
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+}
+
+.note{
+color:var(--soft);
+font-size:12.5px;
+line-height:1.6;
+margin-top:13px;
+}
+
+.redirect-modal{
+display:none;
+position:fixed;
+inset:0;
+z-index:50;
+background:rgba(0,0,0,.72);
+backdrop-filter:blur(15px);
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.modal-box{
+width:min(520px,100%);
+border:1px solid var(--border);
+background:#0c0c0c;
+border-radius:30px;
+padding:30px;
+}
+
+.summary{
+background:rgba(255,255,255,.06);
+border:1px solid var(--border);
+border-radius:20px;
+padding:16px;
+color:rgba(255,255,255,.72);
+font-size:14px;
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.modal-actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.modal-actions button{
+border:0;
+border-radius:16px;
+padding:15px;
+font-weight:700;
+cursor:pointer;
+}
+
+.continue{
+background:white;
+color:black;
+}
+
+.cancel{
+background:rgba(255,255,255,.09);
+color:white;
+border:1px solid var(--border)!important;
+}
+
+@media(max-width:980px){
+.hero{
+grid-template-columns:1fr;
+}
+
+.methods{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
 <body>
+
 <header>
-  <div class="nav">
-    <div>
-      <div class="brand-title">PEAQO TECH</div>
-      <div class="brand-sub">SECURE B2B PAYMENT PORTAL</div>
-    </div>
-  </div>
+<div class="nav">
+<div>
+<div class="brand-title">PEAQO TECH</div>
+<div class="brand-sub">SECURE B2B PAYMENT PORTAL</div>
+</div>
+</div>
 </header>
 
 <main>
-<section class="hero">
-<div>
-  <div class="badge"><span class="dot"></span> Teklif sonrası güvenli kurumsal ödeme</div>
-  <h1>Güvenli kurumsal <span>ödeme portalı.</span></h1>
-  <p class="hero-text">
-    PEAQO TECH; avans, teklif, fatura ve cari hesap ödemeleri için geliştirilmiş modern B2B ödeme portalıdır. Kart bilgileriniz PEAQO TECH tarafından saklanmaz; ödeme işlemleri lisanslı ödeme kuruluşu altyapısı üzerinden gerçekleştirilir.
-  </p>
 
-  <div class="trust-row">
-    <div class="trust-box"><strong>SSL Güvenliği</strong><p>Ödeme portalı HTTPS bağlantısı üzerinden çalışır.</p></div>
-    <div class="trust-box"><strong>3D Secure Uyumlu</strong><p>Kartlı işlemler ödeme kuruluşu ekranında doğrulanır.</p></div>
-    <div class="trust-box"><strong>Kart Bilgisi Saklanmaz</strong><p>Kart numarası ve CVC bu sitede toplanmaz.</p></div>
-  </div>
+<section class="hero">
+
+<div>
+
+<div class="badge">
+<span class="dot"></span>
+Teklif sonrası güvenli kurumsal ödeme
+</div>
+
+<h1>
+Güvenli kurumsal
+<span>ödeme portalı.</span>
+</h1>
+
+<p class="hero-text">
+PEAQO TECH; avans, teklif, fatura ve cari hesap ödemeleri için geliştirilmiş modern B2B ödeme portalıdır.
+</p>
+
 </div>
 
 <div class="form-card">
+
 <div class="form-head">
-  <div>
-    <h2>Ödeme Bilgileri</h2>
-    <p>Bilgilerinizi girin, ardından güvenli ödeme sayfasına ilerleyin.</p>
-  </div>
-  <div class="ssl-pill">SSL Aktif</div>
+<div>
+<h2>Ödeme Bilgileri</h2>
+<p>Bilgilerinizi girin ve ödeme yöntemini seçin.</p>
+</div>
+<div class="ssl-pill">SSL Aktif</div>
 </div>
 
-<form id="paymentForm">
-  <div class="field">
-    <label>Ad Soyad / Firma Ünvanı</label>
-    <input id="name" type="text" placeholder="Örn: ABC Teknik Ltd. Şti." required>
-    <span class="valid-check">✓</span>
-  </div>
+<form id="paymentForm" novalidate>
 
-  <div class="two-col">
-    <div class="field">
-      <label>Telefon</label>
-      <input id="phone" type="tel" placeholder="05XX XXX XX XX" required>
-      <span class="valid-check">✓</span>
-    </div>
+<div class="field" id="nameField">
+<label>Ad Soyad / Firma Ünvanı</label>
+<input id="name" type="text" required>
+<span class="valid-check">✓</span>
+<div class="error-text">En az 3 karakter giriniz.</div>
+</div>
 
-    <div class="field">
-      <label>E-posta</label>
-      <input id="email" type="email" placeholder="ornek@firma.com" required>
-      <span class="valid-check">✓</span>
-    </div>
-  </div>
+<div class="two-col">
 
-  <div class="field">
-    <label>T.C. Kimlik No / Vergi No</label>
-    <input id="tax" type="text" maxlength="11" placeholder="T.C. veya VKN giriniz" required>
-    <span class="valid-check">✓</span>
-  </div>
+<div class="field" id="phoneField">
+<label>Telefon</label>
+<input id="phone" type="tel" required>
+<span class="valid-check">✓</span>
+<div class="error-text">Geçerli telefon giriniz.</div>
+</div>
 
-  <div class="field">
-    <label>Ödeme Türü</label>
-    <select id="paymentType" required>
-      <option value="" selected disabled>Ödeme türü seçiniz</option>
-      <option value="Avans Ödemesi">Avans Ödemesi</option>
-      <option value="Teklif Ödemesi">Teklif Ödemesi</option>
-      <option value="Fatura Ödemesi">Fatura Ödemesi</option>
-      <option value="Cari Hesap Ödemesi">Cari Hesap Ödemesi</option>
-      <option value="Diğer">Diğer</option>
-    </select>
-    <span class="valid-check">✓</span>
-  </div>
+<div class="field" id="emailField">
+<label>E-posta</label>
+<input id="email" type="email" required>
+<span class="valid-check">✓</span>
+<div class="error-text">Geçerli e-posta giriniz.</div>
+</div>
 
-  <div class="field">
-    <label id="descriptionLabel">Açıklama</label>
-    <textarea id="description" maxlength="120" placeholder="Ödeme açıklamasını giriniz"></textarea>
-    <span class="valid-check">✓</span>
-  </div>
-  <div class="char-count" id="charCount">0 / 120</div>
+</div>
 
-  <div class="field">
-    <label>Ödenecek Tutar</label>
-    <input id="amount" type="text" inputmode="decimal" placeholder="₺ Tutar giriniz" required>
-    <span class="valid-check">✓</span>
-  </div>
+<div class="field" id="taxField">
+<label>T.C. Kimlik No / Vergi No</label>
+<input id="tax" type="text" maxlength="11" required>
+<span class="valid-check">✓</span>
+<div class="error-text">Geçerli T.C. / VKN giriniz.</div>
+</div>
 
-  <div class="method-title">Ödeme Yöntemi Seçin</div>
+<div class="field" id="typeField">
 
-  <div class="methods">
-    <div class="method" data-method="Kredi Kartı / Banka Kartı"><strong>Kredi Kartı / Banka Kartı</strong><span>3D Secure destekli güvenli kartlı ödeme.</span></div>
-    <div class="method" data-method="EFT / Havale"><strong>EFT / Havale</strong><span>Banka transferi ile ödeme seçeneği.</span></div>
-    <div class="method" data-method="Mobil Ödeme"><strong>Mobil Ödeme</strong><span>Mobil operatör üzerinden faturaya yansıtmalı ödeme.</span></div>
-    <div class="method" data-method="Mail Order"><strong>Mail Order</strong><span>Temsilci desteği ile ödeme işlemi.</span></div>
-  </div>
+<label>Ödeme Türü</label>
 
-  <div class="mobile-note" id="mobileNote">
-    Mobil ödeme seçeneğinde operatör/ödeme kuruluşu komisyonu müşteriye yansıtılır. Nihai ödeme tutarı, komisyon oranı netleştiğinde ödeme ekranında gösterilir.
-  </div>
+<select id="paymentType" required>
 
-  <label class="checkbox">
-    <input id="authCheck" type="checkbox" required>
-    <span>Ödeme işleminde kullanılan kartın/banka hesabının kullanım yetkisinin tarafıma ait olduğunu ve işlem bilgilerinin doğruluğunu kabul ediyorum. Şüpheli işlemlerde ek doğrulama talep edilebilir.</span>
-  </label>
+<option value="" selected disabled>
+Ödeme türü seçiniz
+</option>
 
-  <button class="pay-btn" type="submit">Ödeme Sayfasına Git</button>
+<option value="Avans Ödemesi">
+Avans Ödemesi
+</option>
 
-  <p class="note">Bu aşamada kart bilgisi alınmaz. Devam ettiğinizde seçilen ödeme yöntemine göre lisanslı ödeme kuruluşu veya banka ödeme ekranına yönlendirilirsiniz.</p>
+<option value="Teklif Ödemesi">
+Teklif Ödemesi
+</option>
+
+<option value="Fatura Ödemesi">
+Fatura Ödemesi
+</option>
+
+<option value="Cari Hesap Ödemesi">
+Cari Hesap Ödemesi
+</option>
+
+<option value="Diğer">
+Diğer
+</option>
+
+</select>
+
+<span class="valid-check">✓</span>
+
+<div class="error-text">
+Ödeme türü seçiniz.
+</div>
+
+</div>
+
+<div class="field" id="descriptionField">
+
+<label id="descriptionLabel">
+Açıklama
+</label>
+
+<textarea id="description" maxlength="120"></textarea>
+
+<span class="valid-check">✓</span>
+
+<div class="error-text">
+Açıklama en az 10 karakter olmalıdır.
+</div>
+
+</div>
+
+<div class="char-count" id="charCount">
+0 / 120
+</div>
+
+<div class="field" id="amountField">
+
+<label>Ödenecek Tutar</label>
+
+<input id="amount" type="text" inputmode="decimal" required>
+
+<span class="valid-check">✓</span>
+
+<div class="error-text">
+Geçerli tutar giriniz.
+</div>
+
+</div>
+
+<div class="method-title">
+Ödeme Yöntemi Seçin
+</div>
+
+<div class="methods">
+
+<div class="method" data-method="Kredi Kartı / Banka Kartı">
+<strong>Kredi Kartı / Banka Kartı</strong>
+<span>3D Secure destekli güvenli kartlı ödeme.</span>
+</div>
+
+<div class="method" data-method="EFT / Havale">
+<strong>EFT / Havale</strong>
+<span>Banka transferi ile ödeme.</span>
+</div>
+
+<div class="method" data-method="Mobil Ödeme">
+<strong>Mobil Ödeme</strong>
+<span>Mobil operatör faturana yansıtılarak ödeme.</span>
+</div>
+
+</div>
+
+<div class="mobile-note" id="mobileNote">
+Mobil ödeme seçeneğinde nihai ödeme tutarı ödeme ekranında gösterilir.
+</div>
+
+<label class="checkbox" id="authBox">
+
+<input id="authCheck" type="checkbox">
+
+<span>
+Ödeme işleminde kullanılan kartın kullanım yetkisinin tarafıma ait olduğunu kabul ediyorum.
+</span>
+
+</label>
+
+<button class="pay-btn" type="submit">
+Ödeme Sayfasına Git
+</button>
+
+<p class="note">
+Bu aşamada kart bilgisi alınmaz.
+</p>
+
 </form>
+
 </div>
+
 </section>
 
-<section class="sections">
-  <div class="info-card"><h3>Teklif Sonrası Ödeme</h3><p>Ürün ve hizmet bedelleri teklif veya sipariş bilgisine göre belirlenir.</p></div>
-  <div class="info-card"><h3>Kurumsal Tahsilat</h3><p>Avans, cari hesap, fatura ve teklif ödemeleri tek portal üzerinden yönetilebilir.</p></div>
-  <div class="info-card"><h3>İletişim</h3><p>E-posta: info@peaqopay.com<br>Telefon: +90 5XX XXX XX XX<br>Adres: Antalya / Türkiye</p></div>
-</section>
 </main>
 
 <div class="redirect-modal" id="redirectModal">
+
 <div class="modal-box">
-  <h3>Güvenli ödeme sayfasına yönlendiriliyorsunuz</h3>
-  <p>Ödeme işlemi, seçtiğiniz yönteme göre lisanslı ödeme kuruluşu veya banka altyapısı üzerinden tamamlanacaktır.</p>
-  <div class="summary" id="summaryBox"></div>
-  <div class="modal-actions">
-    <button class="cancel" onclick="closeModal()">Geri Dön</button>
-    <button class="continue" onclick="continuePayment()">Güvenli Ödemeye Devam Et</button>
-  </div>
-</div>
+
+<h2 style="margin-bottom:15px;">
+Güvenli ödeme sayfasına yönlendiriliyorsunuz
+</h2>
+
+<div class="summary" id="summaryBox"></div>
+
+<div class="modal-actions">
+
+<button class="cancel" onclick="closeModal()">
+Geri Dön
+</button>
+
+<button class="continue" onclick="continuePayment()">
+Devam Et
+</button>
+
 </div>
 
-<footer>
-<div class="footer-inner">
-  <div>© 2026 PEAQO TECH — Tüm hakları saklıdır.</div>
-  <div class="footer-links">
-    <a href="#">KVKK</a>
-    <a href="#">Gizlilik Politikası</a>
-    <a href="#">İade Politikası</a>
-    <a href="#">Mesafeli Satış</a>
-  </div>
 </div>
-</footer>
+
+</div>
 
 <script>
-const paymentType=document.getElementById("paymentType");
-const description=document.getElementById("description");
-const descriptionLabel=document.getElementById("descriptionLabel");
-const charCount=document.getElementById("charCount");
-const methods=document.querySelectorAll(".method");
-const form=document.getElementById("paymentForm");
-const modal=document.getElementById("redirectModal");
-const summaryBox=document.getElementById("summaryBox");
-const amount=document.getElementById("amount");
-const mobileNote=document.getElementById("mobileNote");
 
-let selectedMethod="";
+const paymentType=document.getElementById('paymentType');
+const description=document.getElementById('description');
+const descriptionLabel=document.getElementById('descriptionLabel');
+const charCount=document.getElementById('charCount');
+const methods=document.querySelectorAll('.method');
+const form=document.getElementById('paymentForm');
+const modal=document.getElementById('redirectModal');
+const summaryBox=document.getElementById('summaryBox');
+const amount=document.getElementById('amount');
+const mobileNote=document.getElementById('mobileNote');
+const authBox=document.getElementById('authBox');
+const authCheck=document.getElementById('authCheck');
+
+let selectedMethod='';
 
 const placeholders={
-"Avans Ödemesi":"Firma Adı / Proje Bilgisi / Açıklama",
-"Teklif Ödemesi":"Teklif No / Firma Adı",
-"Fatura Ödemesi":"Fatura No / Firma Adı",
-"Cari Hesap Ödemesi":"Cari Firma Adı / Vergi No",
-"Diğer":"Ödeme açıklamasını giriniz"
+'Avans Ödemesi':'Firma adı veya proje açıklaması',
+'Teklif Ödemesi':'Teklif no ve firma adı',
+'Fatura Ödemesi':'Fatura no ve firma adı',
+'Cari Hesap Ödemesi':'Cari firma adı ve vergi no',
+'Diğer':'Ödeme açıklaması giriniz'
 };
 
-paymentType.addEventListener("change",function(){
-description.style.display="block";
-charCount.style.display="block";
-description.placeholder=placeholders[this.value];
-descriptionLabel.textContent=this.value+" Açıklaması";
-validateField(this);
+function setFieldState(el,isValid){
+
+const field=el.closest('.field');
+
+if(!field)return;
+
+field.classList.remove('valid','invalid');
+
+if(el.value.trim().length===0)return;
+
+field.classList.add(isValid?'valid':'invalid');
+
+}
+
+function repeated(v){
+return /^(\d)\1+$/.test(v);
+}
+
+function validateName(){
+
+const el=document.getElementById('name');
+
+const ok=el.value.trim().length>=3;
+
+setFieldState(el,ok);
+
+return ok;
+
+}
+
+function validatePhone(){
+
+const el=document.getElementById('phone');
+
+let d=el.value.replace(/\D/g,'');
+
+const ok=
+(d.length===10 && d.startsWith('5')) ||
+(d.length===11 && d.startsWith('05'));
+
+setFieldState(el,ok);
+
+return ok;
+
+}
+
+function validateEmail(){
+
+const el=document.getElementById('email');
+
+const ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
+
+setFieldState(el,ok);
+
+return ok;
+
+}
+
+function validateTax(){
+
+const el=document.getElementById('tax');
+
+const v=el.value.replace(/\D/g,'');
+
+el.value=v;
+
+let ok=false;
+
+if(v.length===10 && !repeated(v)){
+ok=true;
+}
+
+if(v.length===11 && !repeated(v) && v[0]!=='0'){
+ok=true;
+}
+
+setFieldState(el,ok);
+
+return ok;
+
+}
+
+function validateType(){
+
+const ok=paymentType.value!=='';
+
+setFieldState(paymentType,ok);
+
+return ok;
+
+}
+
+function validateDescription(){
+
+const ok=
+description.style.display==='none' ||
+description.value.trim().length>=10;
+
+setFieldState(description,ok);
+
+charCount.textContent=
+description.value.length+' / 120';
+
+return ok;
+
+}
+
+function validateAmount(){
+
+let raw=
+amount.value.replace(/\./g,'').replace(',','.');
+
+let num=parseFloat(raw);
+
+const ok=!isNaN(num)&&num>0;
+
+setFieldState(amount,ok);
+
+return ok;
+
+}
+
+paymentType.addEventListener('change',function(){
+
+description.style.display='block';
+
+charCount.style.display='block';
+
+description.placeholder=
+placeholders[this.value];
+
+descriptionLabel.textContent=
+this.value+' Açıklaması';
+
+validateType();
+
+validateDescription();
+
 });
 
-description.addEventListener("input",function(){
-charCount.textContent=description.value.length+" / 120";
-validateField(description);
+description.addEventListener('input',validateDescription);
+
+document.getElementById('name').addEventListener('input',validateName);
+
+document.getElementById('phone').addEventListener('input',validatePhone);
+
+document.getElementById('email').addEventListener('input',validateEmail);
+
+document.getElementById('tax').addEventListener('input',validateTax);
+
+amount.addEventListener('input',function(e){
+
+let value=e.target.value.replace(/[^0-9,]/g,'');
+
+let parts=value.split(',');
+
+let integerPart=parts[0].replace(/\./g,'');
+
+let decimalPart=parts[1];
+
+integerPart=
+integerPart.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+
+if(decimalPart!==undefined){
+
+decimalPart=decimalPart.substring(0,2);
+
+value=integerPart+','+decimalPart;
+
+}
+
+else{
+
+value=integerPart;
+
+}
+
+e.target.value=value;
+
+validateAmount();
+
 });
 
 methods.forEach(method=>{
-method.addEventListener("click",function(){
-methods.forEach(m=>m.classList.remove("active"));
-this.classList.add("active");
+
+method.addEventListener('click',function(){
+
+methods.forEach(m=>m.classList.remove('active'));
+
+this.classList.add('active');
+
 selectedMethod=this.dataset.method;
-mobileNote.style.display=selectedMethod==="Mobil Ödeme"?"block":"none";
-});
-});
 
-document.querySelectorAll("input,select,textarea").forEach((el,index,all)=>{
-el.addEventListener("keydown",function(e){
-if(e.key==="Enter"){
-e.preventDefault();
-let next=all[index+1];
-if(next) next.focus();
-}
-});
-});
+mobileNote.style.display=
+selectedMethod==='Mobil Ödeme'
+?'block'
+:'none';
 
-document.querySelectorAll("input[required],select[required]").forEach(el=>{
-el.addEventListener("input",()=>validateField(el));
-el.addEventListener("change",()=>validateField(el));
-});
+const needsAuth=
+selectedMethod==='Kredi Kartı / Banka Kartı';
 
-function validateField(el){
-const field=el.closest(".field");
-if(!field)return;
-if(el.value && el.value.trim().length>0){field.classList.add("valid");}
-else{field.classList.remove("valid");}
+authBox.style.display=
+needsAuth
+?'flex'
+:'none';
+
+authCheck.required=needsAuth;
+
+if(!needsAuth){
+authCheck.checked=false;
 }
 
-amount.addEventListener("input",function(e){
-let value=e.target.value.replace(/[^0-9,]/g,"");
-let parts=value.split(",");
-let integerPart=parts[0].replace(/\./g,"");
-let decimalPart=parts[1];
-integerPart=integerPart.replace(/\B(?=(\d{3})+(?!\d))/g,".");
-if(decimalPart!==undefined){decimalPart=decimalPart.substring(0,2);value=integerPart+","+decimalPart;}
-else{value=integerPart;}
-e.target.value=value;
-validateField(e.target);
 });
 
-form.addEventListener("submit",function(e){
+});
+
+document.querySelectorAll('input,select,textarea').forEach((el,index,all)=>{
+
+el.addEventListener('keydown',function(e){
+
+if(e.key==='Enter'){
+
 e.preventDefault();
+
+const next=all[index+1];
+
+if(next)next.focus();
+
+}
+
+});
+
+});
+
+form.addEventListener('submit',function(e){
+
+e.preventDefault();
+
+const ok=
+validateName()&
+validatePhone()&
+validateEmail()&
+validateTax()&
+validateType()&
+validateDescription()&
+validateAmount();
 
 if(!selectedMethod){
-alert("Lütfen ödeme yöntemi seçiniz.");
+
+alert('Lütfen ödeme yöntemi seçiniz.');
+
 return;
+
 }
 
-const name=document.getElementById("name").value;
-const tax=document.getElementById("tax").value;
-const type=paymentType.value;
-const enteredAmount=amount.value;
+if(!ok){
 
-let commissionText="";
-if(selectedMethod==="Mobil Ödeme"){
-commissionText="<br>Komisyon: Mobil ödeme komisyonu müşteriye yansıtılır. Nihai tutar ödeme ekranında gösterilecektir.";
+alert('Lütfen eksik alanları düzeltiniz.');
+
+return;
+
 }
+
+if(
+selectedMethod==='Kredi Kartı / Banka Kartı'
+&& !authCheck.checked
+){
+
+alert('Kart kullanım onayını işaretleyiniz.');
+
+return;
+
+}
+
+const mobileText=
+selectedMethod==='Mobil Ödeme'
+?'<br>Not: Nihai ödeme tutarı ödeme ekranında gösterilir.'
+:'';
 
 summaryBox.innerHTML=`
-<strong>İşlem Özeti</strong><br>
-Firma / Kişi: ${name}<br>
-T.C. / Vergi No: ${tax}<br>
-Ödeme Türü: ${type}<br>
-Ödeme Yöntemi: ${selectedMethod}<br>
-Tutar: ₺${enteredAmount}
-${commissionText}
+<strong>Firma:</strong> ${name.value}<br>
+<strong>T.C/VKN:</strong> ${tax.value}<br>
+<strong>Ödeme Türü:</strong> ${paymentType.value}<br>
+<strong>Açıklama:</strong> ${description.value}<br>
+<strong>Ödeme Yöntemi:</strong> ${selectedMethod}<br>
+<strong>Tutar:</strong> ₺${amount.value}
+${mobileText}
 `;
 
-modal.style.display="flex";
+modal.style.display='flex';
+
 });
 
-function closeModal(){modal.style.display="none";}
-function continuePayment(){alert("Sanal POS entegrasyonu tamamlandığında bu buton ödeme kuruluşu ekranına yönlendirecek.");}
+function closeModal(){
+modal.style.display='none';
+}
+
+function continuePayment(){
+
+if(selectedMethod==='Kredi Kartı / Banka Kartı'){
+
+window.location.href='#';
+
+}
+
+else if(selectedMethod==='EFT / Havale'){
+
+window.location.href='#';
+
+}
+
+else if(selectedMethod==='Mobil Ödeme'){
+
+window.location.href='#';
+
+}
+
+}
+
 </script>
+
 </body>
 </html>
