@@ -39,9 +39,9 @@ header{
 position:sticky;
 top:0;
 z-index:99;
-background:rgba(7,7,7,.82);
-backdrop-filter:blur(16px);
-border-bottom:1px solid var(--line);
+background:linear-gradient(90deg,#facc15,#fbbf24);
+border-bottom:1px solid rgba(0,0,0,.12);
+box-shadow:0 10px 30px rgba(0,0,0,.22);
 }
 
 .nav{
@@ -63,7 +63,7 @@ gap:14px;
 width:48px;
 height:48px;
 border-radius:16px;
-background:white;
+background:#111;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -77,7 +77,7 @@ object-fit:cover;
 }
 
 .logo span{
-color:black;
+color:var(--yellow);
 font-weight:900;
 font-size:20px;
 }
@@ -86,12 +86,13 @@ font-size:20px;
 font-size:24px;
 font-weight:900;
 letter-spacing:3px;
+color:#111;
 }
 
 .brand-sub{
 font-size:11px;
 letter-spacing:2px;
-color:rgba(255,255,255,.45);
+color:rgba(0,0,0,.62);
 margin-top:4px;
 }
 
@@ -102,13 +103,14 @@ gap:24px;
 
 .nav-links a{
 text-decoration:none;
-color:rgba(255,255,255,.65);
+color:#111;
 font-size:14px;
+font-weight:700;
 transition:.2s;
 }
 
 .nav-links a:hover{
-color:var(--yellow);
+opacity:.7;
 }
 
 main{
@@ -167,6 +169,31 @@ font-size:18px;
 font-weight:900;
 color:var(--yellow);
 margin-bottom:20px;
+}
+
+.slider-box{
+margin-top:22px;
+max-width:670px;
+min-height:118px;
+padding:24px;
+border-radius:28px;
+background:linear-gradient(135deg,rgba(250,204,21,.16),rgba(255,255,255,.04));
+border:1px solid rgba(250,204,21,.28);
+box-shadow:0 18px 45px rgba(0,0,0,.22);
+transition:.3s;
+}
+
+.slide-title{
+font-size:24px;
+font-weight:900;
+color:#facc15;
+margin-bottom:10px;
+}
+
+.slide-text{
+font-size:16px;
+line-height:1.7;
+color:rgba(255,255,255,.68);
 }
 
 .desc{
@@ -701,36 +728,28 @@ color:var(--yellow);
 }
 
 @media(max-width:1000px){
-
 .hero{
 grid-template-columns:1fr;
 }
-
 .cards{
 grid-template-columns:1fr;
 }
-
 }
 
 @media(max-width:560px){
-
 .nav-links{
 display:none;
 }
-
 .two,
 .modal-actions{
 grid-template-columns:1fr;
 }
-
 h1{
 font-size:50px;
 }
-
 .form-card{
 padding:20px;
 }
-
 }
 </style>
 </head>
@@ -777,8 +796,11 @@ Güvenli Ödeme
 PEAQO TECH — Çözümde her zaman yanınızda.
 </div>
 
-<div class="desc">
-PEAQO TECH olarak elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında müşterilerimize hızlı, güvenilir ve teklif bazlı çözümler sunuyoruz. Bu portal üzerinden avans, teklif, fatura ve cari hesap ödemelerinizi kolay, hızlı ve güvenli şekilde başlatabilirsiniz.
+<div class="slider-box">
+<div class="slide-title" id="slideTitle">Teklif sonrası güvenli ödeme</div>
+<div class="slide-text" id="slideText">
+Avans, teklif, fatura ve cari hesap ödemelerinizi kolayca başlatın.
+</div>
 </div>
 
 <div class="info-box">
@@ -1292,6 +1314,38 @@ window.location.href='#';
 }
 
 }
+
+const slides = [
+  {
+    title: "Teklif sonrası güvenli ödeme",
+    text: "Avans, teklif, fatura ve cari hesap ödemelerinizi kolayca başlatın."
+  },
+  {
+    title: "Kart bilgileriniz saklanmaz",
+    text: "Kartlı ödemeler güvenli ödeme kuruluşu ekranında tamamlanır."
+  },
+  {
+    title: "Teknik tedarikte kurumsal çözüm",
+    text: "Elektrik malzemeleri, hırdavat ve el aletleri için teklif bazlı tedarik."
+  },
+  {
+    title: "Hızlı ve düzenli tahsilat",
+    text: "Ödeme bilgilerinizi girin, yönteminizi seçin, işleminizi güvenle tamamlayın."
+  },
+  {
+    title: "PEAQO TECH",
+    text: "Çözümde her zaman yanınızda."
+  }
+];
+
+let slideIndex = 0;
+
+setInterval(() => {
+  slideIndex = (slideIndex + 1) % slides.length;
+
+  document.getElementById("slideTitle").textContent = slides[slideIndex].title;
+  document.getElementById("slideText").textContent = slides[slideIndex].text;
+}, 5000);
 
 </script>
 
