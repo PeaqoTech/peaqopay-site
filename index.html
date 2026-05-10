@@ -6,40 +6,50 @@
 <title>PEAQO TECH | Güvenli Ödeme Portalı</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
 :root{
---bg:#070707;
 --yellow:#facc15;
 --yellow2:#fbbf24;
 --green:#22c55e;
 --red:#ef4444;
---line:rgba(255,255,255,.09);
---muted:rgba(255,255,255,.64);
---soft:rgba(255,255,255,.42);
+--line:rgba(255,255,255,.08);
+--muted:rgba(255,255,255,.62);
 }
 
 body{
 background:
-radial-gradient(circle at top right,rgba(250,204,21,.16),transparent 28%),
-radial-gradient(circle at bottom left,rgba(250,204,21,.06),transparent 30%),
-linear-gradient(180deg,#050505,#0c0c0c);
+radial-gradient(circle at top right,rgba(250,204,21,.14),transparent 25%),
+radial-gradient(circle at bottom left,rgba(250,204,21,.05),transparent 25%),
+linear-gradient(180deg,#050505,#0b0b0b);
 color:white;
 min-height:100vh;
+overflow-x:hidden;
 }
 
 header{
 position:sticky;
 top:0;
-z-index:99;
-background:rgba(7,7,7,.72);
+z-index:999;
 backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(250,204,21,.18);
-box-shadow:0 12px 35px rgba(0,0,0,.25);
+background:
+linear-gradient(90deg,
+rgba(250,204,21,.12),
+rgba(15,15,15,.88),
+rgba(250,204,21,.10)
+);
+border-bottom:1px solid rgba(250,204,21,.16);
+box-shadow:0 10px 35px rgba(0,0,0,.28);
 }
 
 .nav{
-width:min(1200px,92%);
+width:min(1250px,92%);
 margin:auto;
 padding:18px 0;
 display:flex;
@@ -47,56 +57,107 @@ align-items:center;
 justify-content:space-between;
 }
 
-.brand{display:flex;align-items:center;gap:14px}
-
-.logo{
-width:48px;height:48px;border-radius:16px;background:white;
-display:flex;align-items:center;justify-content:center;overflow:hidden;
+.brand{
+display:flex;
+align-items:center;
+gap:14px;
 }
 
-.logo img{width:100%;height:100%;object-fit:cover}
-.logo span{color:black;font-weight:900;font-size:20px}
+.logo{
+width:52px;
+height:52px;
+border-radius:18px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+backdrop-filter:blur(10px);
+}
 
-.brand-title{font-size:24px;font-weight:900;letter-spacing:3px}
-.brand-sub{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.45);margin-top:4px}
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-.nav-links{display:flex;gap:24px}
-.nav-links a{text-decoration:none;color:rgba(255,255,255,.7);font-size:14px;font-weight:700;transition:.2s}
-.nav-links a:hover{color:var(--yellow)}
+.brand-title{
+font-size:24px;
+font-weight:900;
+letter-spacing:3px;
+}
 
-main{width:min(1200px,92%);margin:auto}
+.brand-sub{
+font-size:11px;
+letter-spacing:2px;
+margin-top:4px;
+color:rgba(255,255,255,.42);
+}
+
+.nav-links{
+display:flex;
+gap:24px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:rgba(255,255,255,.74);
+font-size:14px;
+font-weight:700;
+transition:.2s;
+}
+
+.nav-links a:hover{
+color:var(--yellow);
+}
+
+main{
+width:min(1250px,92%);
+margin:auto;
+}
 
 .hero{
-padding:58px 0 45px;
+padding:55px 0 40px;
 display:grid;
 grid-template-columns:1fr 500px;
-gap:52px;
+gap:50px;
 align-items:start;
 }
 
 .top-badge{
-display:inline-flex;align-items:center;gap:10px;
-padding:10px 15px;border-radius:999px;
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 15px;
+border-radius:999px;
 background:rgba(250,204,21,.08);
-border:1px solid rgba(250,204,21,.25);
-color:#fde68a;font-size:13px;margin-bottom:24px;
+border:1px solid rgba(250,204,21,.24);
+color:#fde68a;
+font-size:13px;
+margin-bottom:24px;
 }
 
 .badge-dot{
-width:9px;height:9px;border-radius:50%;
+width:9px;
+height:9px;
+border-radius:50%;
 background:var(--yellow);
 box-shadow:0 0 18px var(--yellow);
 }
 
 h1{
-font-size:clamp(48px,7vw,78px);
+font-size:clamp(50px,7vw,84px);
 line-height:.95;
 letter-spacing:-3px;
 margin-bottom:18px;
 font-weight:900;
 }
 
-h1 span{display:block;color:rgba(255,255,255,.36)}
+h1 span{
+display:block;
+color:rgba(255,255,255,.34);
+}
 
 .slogan{
 font-size:18px;
@@ -108,30 +169,39 @@ margin-bottom:20px;
 .slider-box{
 margin-top:22px;
 max-width:700px;
-min-height:150px;
-padding:24px;
-border-radius:30px;
-background:linear-gradient(135deg,rgba(250,204,21,.14),rgba(255,255,255,.035));
-border:1px solid rgba(250,204,21,.28);
-box-shadow:0 18px 45px rgba(0,0,0,.22);
+min-height:160px;
+padding:26px;
+border-radius:32px;
+background:
+linear-gradient(135deg,
+rgba(250,204,21,.10),
+rgba(255,255,255,.03)
+);
+border:1px solid rgba(250,204,21,.22);
+backdrop-filter:blur(10px);
 display:grid;
-grid-template-columns:82px 1fr;
-gap:20px;
+grid-template-columns:90px 1fr;
+gap:22px;
 align-items:center;
+box-shadow:0 18px 45px rgba(0,0,0,.25);
 }
 
 .slide-visual{
-width:82px;height:82px;border-radius:26px;
-background:rgba(250,204,21,.12);
-border:1px solid rgba(250,204,21,.22);
-display:flex;align-items:center;justify-content:center;
-font-size:38px;
+width:90px;
+height:90px;
+border-radius:28px;
+background:rgba(250,204,21,.10);
+border:1px solid rgba(250,204,21,.18);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
 }
 
 .slide-title{
 font-size:24px;
 font-weight:900;
-color:#facc15;
+color:var(--yellow);
 margin-bottom:10px;
 }
 
@@ -143,16 +213,26 @@ color:rgba(255,255,255,.68);
 
 .info-box{
 margin-top:28px;
-background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
+background:
+linear-gradient(180deg,
+rgba(255,255,255,.05),
+rgba(255,255,255,.02)
+);
 border:1px solid var(--line);
 border-radius:30px;
 padding:26px;
-position:relative;
-overflow:hidden;
 }
 
-.info-box h3{font-size:22px;margin-bottom:12px}
-.info-box p{font-size:14px;line-height:1.75;color:var(--muted)}
+.info-box h3{
+font-size:22px;
+margin-bottom:12px;
+}
+
+.info-box p{
+font-size:14px;
+line-height:1.75;
+color:var(--muted);
+}
 
 .cards{
 display:grid;
@@ -171,55 +251,102 @@ transition:.2s;
 
 .card:hover{
 transform:translateY(-2px);
-border-color:rgba(250,204,21,.3);
+border-color:rgba(250,204,21,.28);
 }
 
 .card-icon{
-width:44px;height:44px;border-radius:16px;
-background:rgba(250,204,21,.09);
-display:flex;align-items:center;justify-content:center;
-margin-bottom:14px;font-size:22px;
+width:46px;
+height:46px;
+border-radius:16px;
+background:rgba(250,204,21,.08);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+margin-bottom:14px;
 }
 
-.card strong{display:block;margin-bottom:8px;font-size:15px}
-.card span{display:block;font-size:13px;line-height:1.6;color:rgba(255,255,255,.58)}
+.card strong{
+display:block;
+margin-bottom:8px;
+font-size:15px;
+}
+
+.card span{
+display:block;
+font-size:13px;
+line-height:1.6;
+color:rgba(255,255,255,.58);
+}
 
 .form-card{
-background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+background:
+linear-gradient(180deg,
+rgba(255,255,255,.055),
+rgba(255,255,255,.025)
+);
 border:1px solid var(--line);
 border-radius:32px;
 padding:28px;
 box-shadow:0 25px 70px rgba(0,0,0,.42);
 }
 
-.form-head{display:flex;justify-content:space-between;gap:15px;margin-bottom:18px}
-.form-head h2{font-size:30px;margin-bottom:7px}
-.form-head p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.5)}
+.form-head{
+display:flex;
+justify-content:space-between;
+gap:15px;
+margin-bottom:18px;
+}
+
+.form-head h2{
+font-size:30px;
+margin-bottom:7px;
+}
+
+.form-head p{
+font-size:14px;
+line-height:1.6;
+color:rgba(255,255,255,.5);
+}
 
 .ssl{
-padding:9px 14px;border-radius:999px;
+padding:9px 14px;
+border-radius:999px;
 background:rgba(34,197,94,.12);
 border:1px solid rgba(34,197,94,.35);
-font-size:12px;color:#d8ffe4;height:max-content;white-space:nowrap;
+font-size:12px;
+color:#d8ffe4;
+height:max-content;
 }
 
 .notice{
-padding:14px;border-radius:18px;
+padding:14px;
+border-radius:18px;
 background:rgba(255,255,255,.03);
 border:1px solid var(--line);
-font-size:12px;line-height:1.7;
+font-size:12px;
+line-height:1.7;
 color:rgba(255,255,255,.62);
 margin-bottom:18px;
 }
 
-.field{margin-bottom:15px;position:relative}
-label{display:block;margin-bottom:8px;font-size:13px;color:rgba(255,255,255,.68)}
+.field{
+margin-bottom:15px;
+position:relative;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-size:13px;
+color:rgba(255,255,255,.68);
+}
 
 input,textarea{
 width:100%;
 padding:15px 45px 15px 15px;
 background:#111;
-border:1px solid rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.08);
 border-radius:17px;
 color:white;
 font-size:15px;
@@ -227,66 +354,115 @@ outline:none;
 transition:.2s;
 }
 
-input:focus,textarea:focus{border-color:rgba(250,204,21,.55)}
-textarea{min-height:90px;resize:none;display:none}
+input:focus,
+textarea:focus{
+border-color:rgba(250,204,21,.45);
+}
 
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+textarea{
+min-height:90px;
+resize:none;
+display:none;
+}
+
+.two{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
 
 .field.valid input,
 .field.valid textarea,
-.field.valid .select-trigger{border-color:rgba(34,197,94,.65)}
+.field.valid .select-trigger{
+border-color:rgba(34,197,94,.6);
+}
 
 .field.invalid input,
 .field.invalid textarea,
-.field.invalid .select-trigger{border-color:rgba(239,68,68,.8)}
+.field.invalid .select-trigger{
+border-color:rgba(239,68,68,.8);
+}
 
 .check{
-display:none;position:absolute;right:15px;bottom:15px;
-font-size:18px;font-weight:900;color:var(--green);
+display:none;
+position:absolute;
+right:15px;
+bottom:15px;
+font-size:18px;
+font-weight:900;
+color:var(--green);
 }
 
-.field.valid .check{display:block}
+.field.valid .check{
+display:block;
+}
 
 .error{
-display:none;margin-top:6px;
-font-size:11px;color:#ff8e8e;
+display:none;
+margin-top:6px;
+font-size:11px;
+color:#ff8e8e;
 }
 
-.field.invalid .error{display:block}
+.field.invalid .error{
+display:block;
+}
 
 .count{
-display:none;text-align:right;font-size:12px;
+display:none;
+text-align:right;
+font-size:12px;
 color:rgba(255,255,255,.42);
-margin-top:-8px;margin-bottom:10px;
+margin-top:-8px;
+margin-bottom:10px;
 }
 
-.count.good{color:var(--green)}
+.count.good{
+color:var(--green);
+}
 
-.select{position:relative}
+.select{
+position:relative;
+}
 
 .select-trigger{
 width:100%;
 padding:15px;
 background:#111;
-border:1px solid rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.08);
 border-radius:17px;
 cursor:pointer;
 transition:.2s;
 color:white;
 }
 
-.select-trigger:hover{border-color:rgba(250,204,21,.35)}
-.select-trigger::after{content:"⌄";float:right;color:rgba(255,255,255,.55)}
+.select-trigger:hover{
+border-color:rgba(250,204,21,.35);
+}
+
+.select-trigger::after{
+content:"⌄";
+float:right;
+color:rgba(255,255,255,.55);
+}
 
 .options{
-display:none;position:absolute;top:calc(100% + 8px);
-left:0;right:0;background:#181818;
-border:1px solid rgba(255,255,255,.09);
-border-radius:18px;overflow:hidden;z-index:50;
+display:none;
+position:absolute;
+top:calc(100% + 8px);
+left:0;
+right:0;
+background:#181818;
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+overflow:hidden;
+z-index:50;
 box-shadow:0 20px 45px rgba(0,0,0,.45);
 }
 
-.options.open{display:block}
+.options.open{
+display:block;
+}
 
 .option{
 padding:14px 16px;
@@ -295,22 +471,45 @@ transition:.18s;
 font-size:14px;
 }
 
-.option:hover{background:rgba(250,204,21,.12);color:var(--yellow)}
-.option.selected{background:rgba(34,197,94,.18);color:#b8ffd1}
-
-.method-title{margin:20px 0 12px;font-size:15px;font-weight:900}
-
-.methods{display:grid;gap:12px;margin-bottom:15px}
-
-.method{
-padding:15px;border-radius:20px;
-background:rgba(255,255,255,.035);
-border:1px solid rgba(255,255,255,.09);
-display:flex;gap:14px;align-items:center;
-cursor:pointer;transition:.2s;position:relative;
+.option:hover{
+background:rgba(250,204,21,.12);
+color:var(--yellow);
 }
 
-.method:hover{border-color:rgba(250,204,21,.32);transform:translateY(-1px)}
+.option.selected{
+background:rgba(34,197,94,.18);
+color:#b8ffd1;
+}
+
+.method-title{
+margin:20px 0 12px;
+font-size:15px;
+font-weight:900;
+}
+
+.methods{
+display:grid;
+gap:12px;
+margin-bottom:15px;
+}
+
+.method{
+padding:15px;
+border-radius:20px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+display:flex;
+gap:14px;
+align-items:center;
+cursor:pointer;
+transition:.2s;
+position:relative;
+}
+
+.method:hover{
+border-color:rgba(250,204,21,.3);
+transform:translateY(-1px);
+}
 
 .method.active{
 background:rgba(34,197,94,.13);
@@ -318,155 +517,290 @@ border-color:rgba(34,197,94,.58);
 }
 
 .method.active::after{
-content:"✓";position:absolute;right:14px;top:14px;
-width:23px;height:23px;border-radius:50%;
-background:var(--green);color:black;
-display:flex;align-items:center;justify-content:center;
-font-size:14px;font-weight:900;
+content:"✓";
+position:absolute;
+right:14px;
+top:14px;
+width:23px;
+height:23px;
+border-radius:50%;
+background:var(--green);
+color:black;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+font-weight:900;
 }
 
 .method-icon{
-width:48px;height:48px;border-radius:16px;
-background:rgba(250,204,21,.09);
-display:flex;align-items:center;justify-content:center;flex:none;
+width:48px;
+height:48px;
+border-radius:16px;
+background:rgba(250,204,21,.08);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
 }
 
-.method strong{display:block;margin-bottom:5px;font-size:14px}
-.method span{display:block;font-size:12px;line-height:1.55;color:rgba(255,255,255,.55);padding-right:30px}
+.method strong{
+display:block;
+margin-bottom:5px;
+font-size:14px;
+}
+
+.method span{
+display:block;
+font-size:12px;
+line-height:1.55;
+color:rgba(255,255,255,.55);
+padding-right:30px;
+}
 
 .mobile-note{
-display:none;padding:13px;border-radius:16px;
+display:none;
+padding:13px;
+border-radius:16px;
 background:rgba(250,204,21,.08);
 border:1px solid rgba(250,204,21,.25);
-font-size:12px;line-height:1.7;
+font-size:12px;
+line-height:1.7;
 color:rgba(255,255,255,.72);
 margin-bottom:15px;
 }
 
 .auth{
-display:none;gap:10px;font-size:12px;
-line-height:1.6;color:rgba(255,255,255,.58);
+display:none;
+gap:10px;
+font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.58);
 margin:15px 0;
 }
 
-.auth input{width:auto;padding:0;margin-top:2px}
+.auth input{
+width:auto;
+padding:0;
+margin-top:2px;
+}
 
 .btn{
-width:100%;padding:17px;border:none;border-radius:18px;
+width:100%;
+padding:17px;
+border:none;
+border-radius:18px;
 background:linear-gradient(90deg,var(--yellow),var(--yellow2));
-color:black;font-size:16px;font-weight:900;
-cursor:pointer;transition:.2s;
+color:black;
+font-size:16px;
+font-weight:900;
+cursor:pointer;
+transition:.2s;
 }
 
-.btn:hover{transform:translateY(-1px);opacity:.95}
+.btn:hover{
+transform:translateY(-1px);
+opacity:.95;
+}
 
-.note{margin-top:13px;font-size:12px;line-height:1.6;color:rgba(255,255,255,.45)}
+.note{
+margin-top:13px;
+font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.45);
+}
 
-.modal{
-display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.75);
+.piiko{
+position:fixed;
+right:22px;
+bottom:22px;
+z-index:999;
+display:flex;
+align-items:flex-end;
+gap:12px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
+.piiko-msg{
+max-width:230px;
+padding:12px 14px;
+border-radius:18px 18px 4px 18px;
+background:rgba(18,18,18,.92);
+border:1px solid rgba(250,204,21,.18);
+font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.72);
 backdrop-filter:blur(10px);
-z-index:999;align-items:center;justify-content:center;
-padding:20px;
 }
 
-.modal-box{
-width:min(560px,100%);
-background:#141414;
-border:1px solid rgba(255,255,255,.09);
+.piiko-btn{
+width:74px;
+height:74px;
+border-radius:26px;
+background:
+linear-gradient(135deg,
+rgba(250,204,21,.18),
+rgba(255,255,255,.05)
+);
+border:1px solid rgba(250,204,21,.28);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+cursor:pointer;
+box-shadow:0 0 35px rgba(250,204,21,.14);
+}
+
+.piiko-btn img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.help-panel{
+position:fixed;
+right:22px;
+bottom:110px;
+width:320px;
+padding:24px;
 border-radius:28px;
-padding:28px;
+background:
+linear-gradient(180deg,
+rgba(18,18,18,.95),
+rgba(10,10,10,.95)
+);
+border:1px solid rgba(250,204,21,.18);
+backdrop-filter:blur(16px);
+z-index:999;
+display:none;
 }
 
-.modal-box h2{font-size:28px;margin-bottom:10px}
-
-.modal-box p{
-font-size:14px;line-height:1.7;
-color:rgba(255,255,255,.58);
-margin-bottom:16px;
+.help-panel h3{
+font-size:22px;
+margin-bottom:10px;
 }
 
-.summary{
-padding:16px;border-radius:18px;
-background:rgba(255,255,255,.035);
-border:1px solid rgba(255,255,255,.09);
-font-size:14px;line-height:1.9;
-color:rgba(255,255,255,.75);
+.help-panel p{
+font-size:13px;
+line-height:1.7;
+color:rgba(255,255,255,.62);
 margin-bottom:18px;
 }
 
-.modal-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
-
-.modal-actions button{
-padding:15px;border:none;border-radius:16px;
-font-weight:900;cursor:pointer;
+.help-links{
+display:grid;
+gap:10px;
 }
 
-.cancel{background:rgba(255,255,255,.06);color:white}
-.continue{background:linear-gradient(90deg,var(--yellow),var(--yellow2));color:black}
-
-footer{
-margin-top:25px;padding:35px 0;
-border-top:1px solid rgba(255,255,255,.06);
-}
-
-.footer-inner{
-width:min(1200px,92%);margin:auto;
-display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
-font-size:13px;line-height:1.7;color:rgba(255,255,255,.48);
-}
-
-.footer-links{display:flex;gap:14px;flex-wrap:wrap}
-
-.footer-links a{
-color:rgba(255,255,255,.48);
+.help-links a{
 text-decoration:none;
+padding:13px;
+border-radius:16px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.06);
+color:white;
+font-size:14px;
+transition:.2s;
 }
 
-.footer-links a:hover{color:var(--yellow)}
+.help-links a:hover{
+border-color:rgba(250,204,21,.25);
+color:var(--yellow);
+}
 
 @media(max-width:1000px){
-.hero{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
 }
 
 @media(max-width:560px){
-.nav-links{display:none}
-.two,.modal-actions{grid-template-columns:1fr}
-h1{font-size:50px}
-.form-card{padding:20px}
-.slider-box{grid-template-columns:1fr}
+
+.nav-links{
+display:none;
 }
+
+.two{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:52px;
+}
+
+.slider-box{
+grid-template-columns:1fr;
+}
+
+.form-card{
+padding:20px;
+}
+
+.piiko{
+right:14px;
+bottom:14px;
+}
+
+.piiko-msg{
+display:none;
+}
+
+.help-panel{
+width:92%;
+right:4%;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div class="nav">
+
 <div class="brand">
+
 <div class="logo">
-<img src="https://raw.githubusercontent.com/OguzGurer/peaqopay-site/main/piiko.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='<span>P</span>'">
+<img src="logo.png">
 </div>
+
 <div>
 <div class="brand-title">PEAQO TECH</div>
 <div class="brand-sub">SECURE B2B PAYMENT PORTAL</div>
 </div>
+
 </div>
 
 <div class="nav-links">
-<a href="#payment">Ödeme</a>
-<a href="#about">Hakkında</a>
-<a href="#contact">İletişim</a>
+<a href="#">Ödeme</a>
+<a href="#">Hakkında</a>
+<a href="#">İletişim</a>
 </div>
+
 </div>
+
 </header>
 
 <main>
 
 <section class="hero">
 
-<div class="left" id="about">
+<div>
 
 <div class="top-badge">
 <div class="badge-dot"></div>
@@ -483,494 +817,219 @@ PEAQO TECH — Çözümde her zaman yanınızda.
 </div>
 
 <div class="slider-box">
-<div class="slide-visual" id="slideVisual">💳</div>
+
+<div class="slide-visual" id="slideVisual">
+💳
+</div>
+
 <div>
-<div class="slide-title" id="slideTitle">Teklif sonrası güvenli ödeme</div>
+<div class="slide-title" id="slideTitle">
+Teklif sonrası güvenli ödeme
+</div>
+
 <div class="slide-text" id="slideText">
 Avans, teklif, fatura ve cari hesap ödemelerinizi kolayca başlatın.
 </div>
 </div>
+
 </div>
 
 <div class="info-box">
+
 <h3>Kurumsal Tahsilat Sistemi</h3>
+
 <p>
 Müşterilerimizin ödeme yapmak için zaman kaybetmesini istemiyoruz. Bu portal; ödeme bilgilerini düzenli almak, süreci kolaylaştırmak ve işlemleri güvenli şekilde başlatmak için hazırlanmıştır.
 </p>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
-<div class="card-icon">⚡</div>
-<strong>Hızlı İşlem</strong>
-<span>Ödeme bilgilerinizi girin, yönteminizi seçin ve işleminizi güvenle başlatın.</span>
+<div class="card-icon">💰</div>
+<strong>Uygun Fiyat Araştırması</strong>
+<span>İhtiyacınıza uygun ürünleri farklı tedarik seçenekleriyle değerlendiririz.</span>
 </div>
 
 <div class="card">
-<div class="card-icon">🛡️</div>
-<strong>Güvenli Yönlendirme</strong>
-<span>Kart bilgileriniz bu sitede alınmaz. İşlem güvenli ödeme ekranında tamamlanır.</span>
+<div class="card-icon">📋</div>
+<strong>Teklif Bazlı Çalışma</strong>
+<span>Her müşteri ve ürün grubu için ihtiyaca özel teklif hazırlarız.</span>
+</div>
+
+<div class="card">
+<div class="card-icon">⚡</div>
+<strong>Teknik Ürün Tedariği</strong>
+<span>Elektrik malzemeleri, hırdavat ve teknik ürün çözümleri sunarız.</span>
+</div>
+
+<div class="card">
+<div class="card-icon">🔒</div>
+<strong>Güvenli Ödeme Süreci</strong>
+<span>Kart bilgileriniz bu sitede tutulmaz.</span>
 </div>
 
 <div class="card">
 <div class="card-icon">🏢</div>
-<strong>Kurumsal Düzen</strong>
-<span>Avans, teklif, fatura ve cari hesap ödemeleri daha düzenli takip edilir.</span>
+<strong>Cari / Fatura Ödemesi</strong>
+<span>Tüm ödeme süreçleri tek portal üzerinden yönetilir.</span>
 </div>
 
 <div class="card">
-<div class="card-icon">🤝</div>
-<strong>Müşteri Odaklılık</strong>
-<span>Ödeme sürecinin kolay, hızlı ve anlaşılır olması için çözüm üretiyoruz.</span>
+<div class="card-icon">🚀</div>
+<strong>Hızlı Geri Dönüş</strong>
+<span>Talep ve ödeme süreçlerini daha hızlı ilerletiyoruz.</span>
+</div>
+
+<div class="card">
+<div class="card-icon">🔄</div>
+<strong>Alternatif Ürün Seçenekleri</strong>
+<span>Mümkün olduğunda marka ve fiyat alternatifleri sunuyoruz.</span>
+</div>
+
+<div class="card">
+<div class="card-icon">📊</div>
+<strong>Kurumsal Takip Kolaylığı</strong>
+<span>Ödemeler daha düzenli ve açıklamalı şekilde takip edilir.</span>
 </div>
 
 </div>
 
 </div>
 
-<div class="form-card" id="payment">
+<div class="form-card">
 
 <div class="form-head">
+
 <div>
 <h2>Ödeme Bilgileri</h2>
 <p>Bilgilerinizi girin, ödeme türünü ve ödeme yönteminizi seçin.</p>
 </div>
-<div class="ssl">SSL Aktif</div>
+
+<div class="ssl">
+SSL Aktif
+</div>
+
 </div>
 
 <div class="notice">
-Ödeme bilgileriniz tarafınıza iletilen teklif, fatura veya cari hesap bilgileri esas alınarak girilmelidir. Hatalı veya açıklamasız ödemelerde işlem doğrulaması için sizinle iletişime geçilebilir.
+Ödeme bilgileriniz tarafınıza iletilen teklif, fatura veya cari hesap bilgileri esas alınarak girilmelidir.
 </div>
 
-<form id="paymentForm" novalidate>
-
-<div class="field">
-<label>Ad Soyad / Firma Ünvanı</label>
-<input id="name" type="text" placeholder="Örn: ABC Teknik Ltd. Şti." required>
-<span class="check">✓</span>
-<div class="error">En az 3 karakter giriniz.</div>
-</div>
-
-<div class="field">
-<label>T.C. Kimlik No / Vergi No</label>
-<input id="tax" type="text" maxlength="11" inputmode="numeric" placeholder="T.C. veya VKN giriniz" required>
-<span class="check">✓</span>
-<div class="error">Geçerli 10 haneli VKN veya 11 haneli T.C. giriniz.</div>
-</div>
-
-<div class="two">
-<div class="field">
-<label>Telefon</label>
-<input id="phone" type="tel" placeholder="05XX XXX XX XX" required>
-<span class="check">✓</span>
-<div class="error">Geçerli telefon giriniz.</div>
-</div>
-
-<div class="field">
-<label>E-posta</label>
-<input id="email" type="email" placeholder="ornek@firma.com" required>
-<span class="check">✓</span>
-<div class="error">Geçerli e-posta giriniz.</div>
-</div>
-</div>
-
-<div class="field" id="typeField">
-<label>Ödeme Türü</label>
-<div class="select" id="customSelect">
-<div class="select-trigger" id="selectTrigger">Ödeme türü seçiniz</div>
-<div class="options" id="customOptions">
-<div class="option" data-value="Avans Ödemesi">Avans Ödemesi</div>
-<div class="option" data-value="Teklif Ödemesi">Teklif Ödemesi</div>
-<div class="option" data-value="Fatura Ödemesi">Fatura Ödemesi</div>
-<div class="option" data-value="Cari Hesap Ödemesi">Cari Hesap Ödemesi</div>
-<div class="option" data-value="Diğer">Diğer</div>
-</div>
-</div>
-<input type="hidden" id="paymentType" required>
-<span class="check">✓</span>
-<div class="error">Ödeme türü seçiniz.</div>
-</div>
-
-<div class="field">
-<label id="descriptionLabel">Açıklama</label>
-<textarea id="description" maxlength="120" placeholder="Ödeme açıklamasını giriniz"></textarea>
-<span class="check">✓</span>
-<div class="error">Açıklama en az 10 karakter olmalıdır.</div>
-</div>
-
-<div class="count" id="charCount">0 / 120</div>
-
-<div class="field">
-<label>Ödenecek Tutar</label>
-<input id="amount" type="text" inputmode="decimal" placeholder="₺ Tutar giriniz" required>
-<span class="check">✓</span>
-<div class="error">Geçerli bir tutar giriniz.</div>
-</div>
-
-<div class="method-title">Ödeme Yöntemi Seçin</div>
-
-<div class="methods">
-
-<div class="method" data-method="Kredi Kartı / Banka Kartı">
-<div class="method-icon">💳</div>
-<div>
-<strong>Kredi Kartı / Banka Kartı</strong>
-<span>3D Secure destekli güvenli kartla ödeme.</span>
-</div>
-</div>
-
-<div class="method" data-method="Mobil Ödeme">
-<div class="method-icon">📱</div>
-<div>
-<strong>Mobil Ödeme</strong>
-<span>Mobil operatör faturanıza yansıtılarak ödeme.</span>
-</div>
-</div>
-
-<div class="method" data-method="EFT / Havale">
-<div class="method-icon">🏦</div>
-<div>
-<strong>EFT / Havale</strong>
-<span>Banka transferi ile ödeme bildirimi oluşturun.</span>
-</div>
-</div>
-
-</div>
-
-<div class="mobile-note" id="mobileNote">
-Mobil ödeme seçeneğinde operatörün sunduğu hizmet komisyon tutarı müşteriden tahsil edilir. Nihai ödeme tutarı ödeme ekranında gösterilir.
-</div>
-
-<label class="auth" id="authBox">
-<input id="authCheck" type="checkbox">
-<span>Ödeme işleminde kullanılan kartın kullanım yetkisinin tarafıma ait olduğunu ve işlem bilgilerinin doğruluğunu kabul ediyorum. Şüpheli işlemlerde ek doğrulama talep edilebilir.</span>
-</label>
-
-<button class="btn" type="submit">Ödeme İşlemine Devam Et</button>
-
-<p class="note">
-Bu formda kart bilgisi talep edilmez. Kartlı ödeme işlemleri güvenli ödeme kuruluşu ekranında tamamlanır.
-</p>
-
-</form>
 </div>
 
 </section>
+
 </main>
 
-<footer id="contact">
-<div class="footer-inner">
-<div>
-<strong>PEAQO TECH</strong><br>
-Elektrik malzemeleri, hırdavat, el aletleri ve teknik ürün tedariği alanında kurumsal çözümler sunar.<br>
-E-posta: info@peaqopay.com · Telefon: +90 5XX XXX XX XX · Antalya / Türkiye
+<div class="help-panel" id="helpPanel">
+
+<h3>Yardıma mı ihtiyacınız var?</h3>
+
+<p>
+Ödeme işlemleri veya teklif süreci hakkında bizimle iletişime geçebilirsiniz.
+</p>
+
+<div class="help-links">
+<a href="#">WhatsApp ile İletişim</a>
+<a href="#">E-posta Gönder</a>
+<a href="#">Telefon ile Ulaşın</a>
 </div>
 
-<div class="footer-links">
-<a href="#">KVKK</a>
-<a href="#">Gizlilik Politikası</a>
-<a href="#">İade Politikası</a>
-<a href="#">Mesafeli Satış</a>
-<a href="#">İletişim</a>
 </div>
-</div>
-</footer>
 
-<div class="modal" id="modal">
-<div class="modal-box">
-<h2>İşlem Bilgilerinizi Kontrol Edin</h2>
-<p>Devam etmeden önce ödeme bilgilerinizi kontrol edin. Bilgiler doğruysa seçilen ödeme yöntemine göre güvenli adıma geçebilirsiniz.</p>
-<div class="summary" id="summary"></div>
+<div class="piiko">
 
-<div class="modal-actions">
-<button class="cancel" onclick="closeModal()">Bilgileri Düzenle</button>
-<button class="continue" id="continueButton" onclick="continuePayment()">Onayla ve Devam Et</button>
+<div class="piiko-msg" id="piikoMsg">
+Yardıma ihtiyacınız var mı?
 </div>
+
+<div class="piiko-btn" onclick="toggleHelp()">
+<img src="piiko.png">
 </div>
+
 </div>
 
 <script>
-const paymentType=document.getElementById('paymentType');
-const description=document.getElementById('description');
-const descriptionLabel=document.getElementById('descriptionLabel');
-const charCount=document.getElementById('charCount');
-const methods=document.querySelectorAll('.method');
-const form=document.getElementById('paymentForm');
-const modal=document.getElementById('modal');
-const summary=document.getElementById('summary');
-const amount=document.getElementById('amount');
-const mobileNote=document.getElementById('mobileNote');
-const authBox=document.getElementById('authBox');
-const authCheck=document.getElementById('authCheck');
-const selectTrigger=document.getElementById('selectTrigger');
-const customOptions=document.getElementById('customOptions');
-const options=document.querySelectorAll('.option');
-const continueButton=document.getElementById('continueButton');
-
-let selectedMethod='';
-
-const placeholders={
-'Avans Ödemesi':'Avans ödemesine ait proje, hizmet veya sipariş bilgisini yazınız.',
-'Teklif Ödemesi':'Teklif numarası ve firma adını yazınız.',
-'Fatura Ödemesi':'Fatura numarası ve firma adını yazınız.',
-'Cari Hesap Ödemesi':'Cari firma adı ve varsa cari hesap açıklamasını yazınız.',
-'Diğer':'Ödeme nedeninizi açıklayınız.'
-};
-
-selectTrigger.addEventListener('click',()=>{
-customOptions.classList.toggle('open');
-});
-
-options.forEach(option=>{
-option.addEventListener('click',()=>{
-options.forEach(o=>o.classList.remove('selected'));
-option.classList.add('selected');
-
-paymentType.value=option.dataset.value;
-selectTrigger.textContent=option.dataset.value;
-customOptions.classList.remove('open');
-
-description.style.display='block';
-charCount.style.display='block';
-description.placeholder=placeholders[paymentType.value];
-descriptionLabel.textContent=paymentType.value+' Açıklaması';
-
-validateType(true);
-validateDescription(true);
-});
-});
-
-document.addEventListener('click',(e)=>{
-if(!document.getElementById('customSelect').contains(e.target)){
-customOptions.classList.remove('open');
-}
-});
-
-function fieldState(el,ok,force=false){
-const field=el.closest('.field');
-if(!field)return;
-field.classList.remove('valid','invalid');
-if(!force && el.value.trim().length===0)return;
-field.classList.add(ok?'valid':'invalid');
-}
-
-function repeated(v){return /^(\d)\1+$/.test(v);}
-
-function validateName(force=false){
-const el=document.getElementById('name');
-const ok=el.value.trim().length>=3;
-fieldState(el,ok,force);
-return ok;
-}
-
-function validateTax(force=false){
-const el=document.getElementById('tax');
-const v=el.value.replace(/\D/g,'');
-el.value=v;
-let ok=false;
-if(v.length===10 && !repeated(v))ok=true;
-if(v.length===11 && !repeated(v) && v[0]!=='0')ok=true;
-fieldState(el,ok,force);
-return ok;
-}
-
-function validatePhone(force=false){
-const el=document.getElementById('phone');
-let d=el.value.replace(/\D/g,'');
-const ok=(d.length===10 && d.startsWith('5')) || (d.length===11 && d.startsWith('05'));
-fieldState(el,ok,force);
-return ok;
-}
-
-function validateEmail(force=false){
-const el=document.getElementById('email');
-const ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
-fieldState(el,ok,force);
-return ok;
-}
-
-function validateType(force=false){
-const ok=paymentType.value!=='';
-fieldState(paymentType,ok,force);
-return ok;
-}
-
-function validateDescription(force=false){
-const ok=description.style.display==='none' || description.value.trim().length>=10;
-fieldState(description,ok,force);
-charCount.textContent=description.value.length+' / 120';
-if(ok){charCount.classList.add('good')}else{charCount.classList.remove('good')}
-return ok;
-}
-
-function validateAmount(force=false){
-let raw=amount.value.replace(/\./g,'').replace(',','.');
-let num=parseFloat(raw);
-const ok=!isNaN(num)&&num>0;
-fieldState(amount,ok,force);
-return ok;
-}
-
-document.getElementById('name').addEventListener('input',()=>validateName());
-document.getElementById('tax').addEventListener('input',()=>validateTax());
-document.getElementById('phone').addEventListener('input',()=>validatePhone());
-document.getElementById('email').addEventListener('input',()=>validateEmail());
-description.addEventListener('input',()=>validateDescription());
-
-amount.addEventListener('input',(e)=>{
-let value=e.target.value.replace(/[^0-9,]/g,'');
-let parts=value.split(',');
-let integerPart=parts[0].replace(/\./g,'');
-let decimalPart=parts[1];
-
-integerPart=integerPart.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
-
-if(decimalPart!==undefined){
-decimalPart=decimalPart.substring(0,2);
-value=integerPart+','+decimalPart;
-}else{
-value=integerPart;
-}
-
-e.target.value=value;
-validateAmount();
-});
-
-methods.forEach(method=>{
-method.addEventListener('click',function(){
-methods.forEach(m=>m.classList.remove('active'));
-this.classList.add('active');
-selectedMethod=this.dataset.method;
-
-mobileNote.style.display=selectedMethod==='Mobil Ödeme'?'block':'none';
-
-const needsAuth=selectedMethod==='Kredi Kartı / Banka Kartı';
-authBox.style.display=needsAuth?'flex':'none';
-authCheck.required=needsAuth;
-
-if(!needsAuth){authCheck.checked=false;}
-});
-});
-
-document.querySelectorAll('input,textarea').forEach((el,index,all)=>{
-el.addEventListener('keydown',(e)=>{
-if(e.key==='Enter'){
-e.preventDefault();
-const next=all[index+1];
-if(next)next.focus();
-}
-});
-});
-
-form.addEventListener('submit',(e)=>{
-e.preventDefault();
-
-const ok =
-validateName(true) &
-validateTax(true) &
-validatePhone(true) &
-validateEmail(true) &
-validateType(true) &
-validateDescription(true) &
-validateAmount(true);
-
-if(!selectedMethod){
-alert('Lütfen ödeme yöntemi seçiniz.');
-return;
-}
-
-if(!ok){
-alert('Lütfen kırmızı işaretli eksik veya hatalı alanları düzeltiniz.');
-return;
-}
-
-if(selectedMethod==='Kredi Kartı / Banka Kartı' && !authCheck.checked){
-alert('Kart kullanım onayını işaretleyiniz.');
-return;
-}
-
-let note='';
-let btn='Onayla ve Devam Et';
-
-if(selectedMethod==='Kredi Kartı / Banka Kartı'){
-note='<br><strong>Not:</strong> Kart bilgileriniz PEAQO TECH tarafından saklanmaz. Ödeme işlemi güvenli ödeme kuruluşu ekranında tamamlanır.';
-btn='Onayla ve Güvenli Ödeme Ekranına Git';
-}
-
-if(selectedMethod==='Mobil Ödeme'){
-note='<br><strong>Not:</strong> Operatör hizmet komisyonu müşteriden tahsil edilir. Nihai ödeme tutarı ödeme ekranında gösterilir.';
-btn='Onayla ve Mobil Ödeme Ekranına Git';
-}
-
-if(selectedMethod==='EFT / Havale'){
-note='<br><strong>Not:</strong> Devam ettiğinizde banka transferi için gerekli hesap bilgileri görüntülenecektir.';
-btn='Onayla ve Havale Bilgilerini Görüntüle';
-}
-
-continueButton.textContent=btn;
-
-summary.innerHTML=`
-<strong>Firma / Kişi:</strong> ${document.getElementById('name').value}<br>
-<strong>T.C. / VKN:</strong> ${document.getElementById('tax').value}<br>
-<strong>Telefon:</strong> ${document.getElementById('phone').value}<br>
-<strong>E-posta:</strong> ${document.getElementById('email').value}<br>
-<strong>Ödeme Türü:</strong> ${paymentType.value}<br>
-<strong>Açıklama:</strong> ${description.value}<br>
-<strong>Ödeme Yöntemi:</strong> ${selectedMethod}<br>
-<strong>Ödenecek Tutar:</strong> ₺${amount.value}
-${note}
-`;
-
-modal.style.display='flex';
-});
-
-function closeModal(){
-modal.style.display='none';
-}
-
-function continuePayment(){
-if(selectedMethod==='Kredi Kartı / Banka Kartı'){window.location.href='#';}
-else if(selectedMethod==='Mobil Ödeme'){window.location.href='#';}
-else if(selectedMethod==='EFT / Havale'){window.location.href='#';}
-}
 
 const slides = [
-  {
-    icon: "💳",
-    title: "Teklif sonrası güvenli ödeme",
-    text: "Avans, teklif, fatura ve cari hesap ödemelerinizi kolayca başlatın."
-  },
-  {
-    icon: "🔒",
-    title: "Kart bilgileriniz saklanmaz",
-    text: "Kartlı ödemeler güvenli ödeme kuruluşu ekranında tamamlanır."
-  },
-  {
-    icon: "⚡",
-    title: "Teknik tedarikte kurumsal çözüm",
-    text: "Elektrik malzemeleri, hırdavat ve el aletleri için teklif bazlı tedarik."
-  },
-  {
-    icon: "🏢",
-    title: "Hızlı ve düzenli tahsilat",
-    text: "Ödeme bilgilerinizi girin, yönteminizi seçin, işleminizi güvenle tamamlayın."
-  },
-  {
-    icon: "🤝",
-    title: "PEAQO TECH",
-    text: "Müşterilerimizin ödeme sürecini kolaylaştırmak için çözüm üretiyoruz."
-  }
+{
+icon:"💳",
+title:"Teklif sonrası güvenli ödeme",
+text:"Avans, teklif, fatura ve cari hesap ödemelerinizi kolayca başlatın."
+},
+{
+icon:"🔒",
+title:"Kart bilgileriniz saklanmaz",
+text:"Kartlı ödemeler güvenli ödeme kuruluşu ekranında tamamlanır."
+},
+{
+icon:"⚡",
+title:"Teknik tedarikte kurumsal çözüm",
+text:"Elektrik malzemeleri ve teknik ürün tedariği için çözüm sunuyoruz."
+},
+{
+icon:"🏢",
+title:"Kurumsal tahsilat kolaylığı",
+text:"Ödeme süreçlerini daha düzenli ve takip edilebilir hale getiriyoruz."
+},
+{
+icon:"🚀",
+title:"Hızlı ve düzenli tahsilat",
+text:"Ödeme bilgilerinizi girin ve işleminizi güvenle başlatın."
+}
 ];
 
 let slideIndex = 0;
 
 setInterval(() => {
+
 slideIndex = (slideIndex + 1) % slides.length;
-document.getElementById("slideVisual").textContent = slides[slideIndex].icon;
-document.getElementById("slideTitle").textContent = slides[slideIndex].title;
-document.getElementById("slideText").textContent = slides[slideIndex].text;
-}, 5000);
+
+document.getElementById("slideVisual").textContent =
+slides[slideIndex].icon;
+
+document.getElementById("slideTitle").textContent =
+slides[slideIndex].title;
+
+document.getElementById("slideText").textContent =
+slides[slideIndex].text;
+
+},5000);
+
+const piikoTexts = [
+"Yardıma ihtiyacınız var mı?",
+"Teklif numaranızı girmeyi unutmayın.",
+"Ödeme işleminiz güvenli ekranda tamamlanır.",
+"Bir sorun yaşarsanız bizimle iletişime geçebilirsiniz.",
+"PEAQO TECH çözümde her zaman yanınızda.",
+"Mobil ödeme seçeneğini inceleyebilirsiniz."
+];
+
+let piikoIndex = 0;
+
+setInterval(() => {
+
+piikoIndex = (piikoIndex + 1) % piikoTexts.length;
+
+document.getElementById("piikoMsg").textContent =
+piikoTexts[piikoIndex];
+
+},8000);
+
+function toggleHelp(){
+
+const panel = document.getElementById("helpPanel");
+
+if(panel.style.display === "block"){
+panel.style.display = "none";
+}else{
+panel.style.display = "block";
+}
+
+}
+
 </script>
 
 </body>
