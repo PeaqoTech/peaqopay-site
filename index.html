@@ -358,7 +358,7 @@ margin-bottom:18px;
 .field{margin-bottom:15px;position:relative}
 label{display:block;margin-bottom:8px;font-size:13px;color:rgba(255,255,255,.68)}
 
-input,textarea{
+input,textarea,select{
 width:100%;
 padding:15px 45px 15px 15px;
 background:#111;
@@ -370,7 +370,7 @@ outline:none;
 transition:.2s;
 }
 
-input:focus,textarea:focus{border-color:rgba(250,204,21,.45)}
+input:focus,textarea:focus,select:focus{border-color:rgba(250,204,21,.45)}
 textarea{min-height:90px;resize:none;display:none}
 
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -511,6 +511,56 @@ font-size:12px;
 line-height:1.7;
 color:rgba(255,255,255,.72);
 margin-bottom:15px;
+}
+
+.installment-box{
+display:none;
+margin:15px 0;
+padding:15px;
+border-radius:18px;
+background:rgba(250,204,21,.06);
+border:1px solid rgba(250,204,21,.22);
+}
+
+.installment-box label{
+margin-bottom:8px;
+}
+
+.installment-box select{
+width:100%;
+padding:14px 15px;
+background:#111;
+border:1px solid rgba(255,255,255,.10);
+border-radius:16px;
+color:white;
+font-size:14px;
+outline:none;
+}
+
+.installment-info{
+margin-top:13px;
+padding:13px;
+border-radius:15px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.07);
+font-size:13px;
+line-height:1.7;
+color:rgba(255,255,255,.75);
+}
+
+.installment-info span{
+display:block;
+margin-top:4px;
+font-size:18px;
+font-weight:900;
+color:var(--yellow);
+}
+
+.installment-note{
+margin-top:10px;
+font-size:12px;
+line-height:1.6;
+color:rgba(255,255,255,.55);
 }
 
 .auth{display:none;gap:10px;font-size:12px;line-height:1.6;color:rgba(255,255,255,.58);margin:15px 0}
@@ -905,6 +955,28 @@ PEAQO TECH olarak müşterilerimizin ödeme süreçlerinde zaman kaybetmesini is
 Mobil ödeme seçeneğinde operatörün sunduğu hizmet komisyon tutarı müşteriden tahsil edilir. Nihai ödeme tutarı ödeme ekranında gösterilir.
 </div>
 
+<div class="installment-box" id="installmentBox">
+<label>Ödeme Şekli</label>
+<select id="installmentSelect">
+<option value="1">Peşin</option>
+<option value="2">2 Taksit</option>
+<option value="3">3 Taksit</option>
+<option value="4">4 Taksit</option>
+<option value="6">6 Taksit</option>
+<option value="9">9 Taksit</option>
+<option value="12">12 Taksit</option>
+</select>
+
+<div class="installment-info" id="installmentInfo">
+<strong>Karttan Çekilecek Toplam Tutar:</strong>
+<span id="finalAmountText">₺0,00</span>
+</div>
+
+<p class="installment-note">
+Taksitli işlemlerde ödeme kuruluşunun uyguladığı vade farkı / komisyon tutarı müşteriye yansıtılır. Oranlar ödeme kuruluşundan alınacak güncel bilgilere göre hesaplanır.
+</p>
+</div>
+
 <label class="auth" id="authBox">
 <input id="authCheck" type="checkbox">
 <span>Ödeme işleminde kullanılan kartın kullanım yetkisinin tarafıma ait olduğunu ve işlem bilgilerinin doğruluğunu kabul ediyorum. Taksitli işlemlerde uygulanabilecek vade farkının ödeme özetinde gösterileceğini kabul ederim.</span>
@@ -1007,7 +1079,24 @@ const customOptions=document.getElementById('customOptions');
 const options=document.querySelectorAll('.option');
 const continueButton=document.getElementById('continueButton');
 
+const installmentBox=document.getElementById('installmentBox');
+const installmentSelect=document.getElementById('installmentSelect');
+const finalAmountText=document.getElementById('finalAmountText');
+
 let selectedMethod='';
+let selectedInstallment=1;
+let installmentCommission=0;
+let finalAmount=0;
+
+const installmentRates={
+1:0,
+2:0,
+3:0,
+4:0,
+6:0,
+9:0,
+12:0
+};
 
 const placeholders={
 'Avans Ödemesi':'Avans ödemesine ait proje, hizmet veya sipariş bilgisini yazınız.',
@@ -1106,11 +1195,43 @@ fieldState(amount,ok,force);
 return ok;
 }
 
+function parseAmount(){
+let raw=amount.value.replace(/\./g,'').replace(',','.');
+let num=parseFloat(raw);
+return isNaN(num)?0:num;
+}
+
+function formatTL(num){
+return new Intl.NumberFormat('tr-TR',{
+style:'currency',
+currency:'TRY',
+minimumFractionDigits:2
+}).format(num);
+}
+
+function calculateInstallment(){
+const baseAmount=parseAmount();
+selectedInstallment=parseInt(installmentSelect.value);
+const rate=installmentRates[selectedInstallment] || 0;
+
+installmentCommission=baseAmount * rate / 100;
+finalAmount=baseAmount + installmentCommission;
+
+if(selectedInstallment===1){
+finalAmountText.innerHTML=formatTL(baseAmount);
+}else{
+finalAmountText.innerHTML=
+formatTL(finalAmount)+
+`<br><small>Vade Farkı / Komisyon: ${formatTL(installmentCommission)}</small>`;
+}
+}
+
 document.getElementById('name').addEventListener('input',()=>validateName());
 document.getElementById('tax').addEventListener('input',()=>validateTax());
 document.getElementById('phone').addEventListener('input',()=>validatePhone());
 document.getElementById('email').addEventListener('input',()=>validateEmail());
 description.addEventListener('input',()=>validateDescription());
+installmentSelect.addEventListener('change',calculateInstallment);
 
 amount.addEventListener('input',(e)=>{
 let value=e.target.value.replace(/[^0-9,]/g,'');
@@ -1129,6 +1250,7 @@ value=integerPart;
 
 e.target.value=value;
 validateAmount();
+calculateInstallment();
 });
 
 methods.forEach(method=>{
@@ -1144,6 +1266,17 @@ authBox.style.display=needsAuth?'flex':'none';
 authCheck.required=needsAuth;
 
 if(!needsAuth){authCheck.checked=false;}
+
+if(selectedMethod==='Kredi Kartı / Banka Kartı'){
+installmentBox.style.display='block';
+calculateInstallment();
+}else{
+installmentBox.style.display='none';
+installmentSelect.value='1';
+selectedInstallment=1;
+installmentCommission=0;
+finalAmount=parseAmount();
+}
 });
 });
 
@@ -1174,6 +1307,8 @@ alert('Kart kullanım onayını işaretleyiniz.');
 return;
 }
 
+calculateInstallment();
+
 let note='';
 let btn='Onayla ve Devam Et';
 
@@ -1202,7 +1337,10 @@ summary.innerHTML=`
 <strong>Ödeme Türü:</strong> ${paymentType.value}<br>
 <strong>Açıklama:</strong> ${description.value}<br>
 <strong>Ödeme Yöntemi:</strong> ${selectedMethod}<br>
-<strong>Ödenecek Tutar:</strong> ₺${amount.value}
+<strong>Ödenecek Tutar:</strong> ₺${amount.value}<br>
+${selectedMethod==='Kredi Kartı / Banka Kartı' ? `<strong>Ödeme Şekli:</strong> ${selectedInstallment===1?'Peşin':selectedInstallment+' Taksit'}<br>` : ''}
+${selectedMethod==='Kredi Kartı / Banka Kartı' && selectedInstallment>1 ? `<strong>Vade Farkı / Komisyon:</strong> ${formatTL(installmentCommission)}<br>` : ''}
+${selectedMethod==='Kredi Kartı / Banka Kartı' ? `<strong>Karttan Çekilecek Toplam Tutar:</strong> ${formatTL(finalAmount || parseAmount())}<br>` : ''}
 ${note}
 `;
 
